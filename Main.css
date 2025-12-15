@@ -92,13 +92,15 @@ main {
     background-size: 100% auto;
     background-repeat: repeat-y;
     background-attachment: scroll;
-    min-height: 100vh;
+    flex: 1;
 }
 
-/* Adds background color */
+/* Make sure content takes full height of viewport */
 body {
     width: 100vw;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Styles the heading text and adds a margin*/
@@ -241,7 +243,7 @@ li img {
 .nav-right a {
     color: var(--text);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 20px;
     font-family: var(--font-body);
 }
 
@@ -527,6 +529,7 @@ footer {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 5px;
 }
 
 /* Aligns Projects and Gallery items */
@@ -767,26 +770,36 @@ footer {
 /* Styles and aligns the input for text, email and textarea */
 .contact-form input[type="text"],
 .contact-form input[type="email"],
+.contact-form select,
 .contact-form textarea {
     width: 100%;
     padding: 10px 12px;
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.06);
+    font-family: var(--font-body);
+    font-size: 16px;
     color: black;
     box-sizing: border-box;
 }
 
 /* Creates a min height for textarea */
 .contact-form textarea {
-    min-height: 220px;
+    min-height: 320px;
+}
+
+/* Button group container for side-by-side buttons */
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
 }
 
 /* Styles and aligns send button */
-.send-btn {
+.send-btn,
+.clear-btn {
     font-family: var(--font-body);
     font-size: 18px;
     font-weight: bold;
-    margin-left: auto;
     padding: 10px 14px;
     background-color: var(--color-accent-gold);
     color: var(--bg-light);
@@ -797,7 +810,8 @@ footer {
 }
 
 /* Hover effects for send button */
-.send-btn:hover {
+.send-btn:hover,
+.clear-btn:hover {
     background-color: var(--color-accent-gold-light);
     transform: scale(1.08);
     box-shadow: 0 4px 12px rgba(194, 171, 122, 0.4);
@@ -1413,5 +1427,11 @@ footer {
     /* Reduce textarea height */
     .contact-form textarea {
         min-height: 160px;
+    }
+
+    /* Reduce contact title size */
+    .contact-title h1 {
+        font-size: 36px;
+        padding: 10px;
     }
 }

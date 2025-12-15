@@ -51,12 +51,22 @@
         <!-- Right column with subject, name, email fields and send button -->
         <div class="form-right">
           <label class="sr-only" for="Subject">Subject</label>
-          <input type="text" name="Subject" id="Subject" placeholder="Subject...">
-          <label class="sr-only" for="Name">Name</label>
-          <input type="text" name="Name" id="Name" placeholder="Name...">
+          <select name="Subject" id="Subject">
+            <option value="" disabled selected>Select a subject...</option>
+            <option value="Job Opportunity">Job Opportunity</option>
+            <option value="Project Collaboration">Project Collaboration</option>
+            <option value="Other">Other</option>
+          </select>
+          <label class="sr-only" for="FirstName">Name</label>
+          <input type="text" name="FirstName" id="FirstName" placeholder="First name...">
+          <label class="sr-only" for="LastName">Last Name</label>
+          <input type="text" name="LastName" id="LastName" placeholder="Last name...">
           <label class="sr-only" for="Email">Email</label>
           <input type="email" name="Email" id="Email" placeholder="Email...">
-          <button type="submit" class="send-btn">Send</button>
+          <div class="button-group">
+            <button type="button" class="clear-btn">Clear</button>
+            <button type="submit" class="send-btn">Send</button>
+          </div>
         </div>
       </form>
     </div>
