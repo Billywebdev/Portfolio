@@ -3,7 +3,7 @@
    =================================== */
 
 :root {
-    /* Color Variables */
+    /* Colors */
     --bg: hsl(0, 0%, 5%);
     --bg-light: hsl(0, 0%, 10%);
     --text: hsl(0, 0%, 95%);
@@ -19,6 +19,22 @@
     --font-heading: Montserrat;
     --font-body: Open Sans, sans-serif;
     --font-script: GreatVibes;
+
+    /* Font Sizes */
+    --font-size-xs: 0.6875rem;
+    --font-size-sm: 0.75rem;
+    --font-size-base: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.375rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-4xl: 1.625rem;
+    --font-size-5xl: 1.75rem;
+    --font-size-6xl: 2rem;
+    --font-size-7xl: 2.25rem;
+    --font-size-8xl: 2.75rem;
+    --font-size-9xl: 3.25rem;
 }
 
 /* ===================================
@@ -106,40 +122,29 @@ body {
 /* Styles the heading text and adds a margin*/
 h1 {
     font-family: var(--font-heading);
-    font-size: 32px;
+    font-size: var(--font-size-6xl);
     color: var(--text);
 }
 
-/* Styles the second heading text and adds a margin*/
-h2 {
-    font-family: var(--font-body);
-    font-size: 20px;
-    color: var(--text);
-    margin-top: 20px;
-    margin-bottom: 5px;
-}
-
-/* Styles the third heading text and adds margins */
+/* Styles the second and third heading text */
+h2,
 h3 {
     font-family: var(--font-body);
-    font-size: 18px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    font-size: var(--font-size-xl);
     color: var(--text);
 }
 
-/* Styles the fourth heading text and adds margins */
+/* Styles the fourth heading text - smaller, uses heading font */
 h4 {
     font-family: var(--font-heading);
-    font-size: 18px;
-    margin-bottom: 30px;
+    font-size: var(--font-size-lg);
     color: var(--text);
 }
 
 /* Styles the body text */
 p {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: var(--font-size-lg);
     color: var(--text-muted);
 }
 
@@ -151,10 +156,9 @@ span {
 
 /* Styles heading links with gold color and smooth transitions */
 h3 a {
-    font-size: 20px;
+    font-size: var(--font-size-xl);
     color: var(--color-accent-gold);
     font-family: var(--font-body);
-    margin-bottom: 5px;
     text-decoration: none;
     position: relative;
 }
@@ -243,7 +247,7 @@ li img {
 .nav-right a {
     color: var(--text);
     text-decoration: none;
-    font-size: 20px;
+    font-size: var(--font-size-xl);
     font-family: var(--font-body);
 }
 
@@ -307,7 +311,7 @@ li img {
 .nav-center span {
     font-family: var(--font-script);
     color: var(--text);
-    font-size: 32px;
+    font-size: var(--font-size-6xl);
 }
 
 /* ===================================
@@ -342,12 +346,12 @@ footer {
 /* Increase font size and adds margin for h3 */
 .footer-left h3 {
     margin: 0 0 10px 0;
-    font-size: 24px;
+    font-size: var(--font-size-3xl);
 }
 
 /* Decrease font size for p */
 .footer-left p {
-    font-size: 14px;
+    font-size: var(--font-size-lg);
 }
 
 /* Aligns social links */
@@ -365,7 +369,7 @@ footer {
     color: var(--text);
     text-decoration: none;
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: var(--font-size-lg);
     transition: all 0.3s ease;
 }
 
@@ -402,7 +406,7 @@ footer {
 /* Copyright text styling */
 .footer-bottom p {
     margin: 0;
-    font-size: 14px;
+    font-size: var(--font-size-base);
     color: var(--text-muted);
 }
 
@@ -410,7 +414,7 @@ footer {
 .footer-bottom a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 14px;
+    font-size: var(--font-size-base);
     font-family: var(--font-body);
     transition: color 0.3s ease;
 }
@@ -423,7 +427,7 @@ footer {
 /* Styles seperator between footer links */
 .footer-separator {
     color: var(--text-muted);
-    font-size: 14px;
+    font-size: var(--font-size-base);
 }
 
 /* ===================================
@@ -485,13 +489,22 @@ footer {
 .item2 {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     gap: 10px;
 }
 
 /* Adds padding within "Skills" and "Experiences" sections */
 .item2 section {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex: 1;
+}
+
+.item2 section h2 {
+    margin-bottom: 0px;
+    margin-top: 25px;
 }
 
 /* Positions skills titles next to their rating images */
@@ -550,12 +563,6 @@ footer {
     margin-bottom: 5px;
 }
 
-/* Remove top margin from "see all" links */
-.Projects h3,
-.Gallery h3 {
-    margin-top: 0;
-}
-
 /* Resizes and styles images in Projects and Gallery sections */
 .Projects img,
 .Gallery img {
@@ -572,7 +579,7 @@ footer {
 
 /* Title styling and positioning */
 .Project-Title h1 {
-    font-size: 52px;
+    font-size: var(--font-size-9xl);
     padding: 20px;
 }
 
@@ -604,8 +611,10 @@ footer {
 .project-item img {
     flex: 0 0 50%;
     width: 50%;
+    min-height: 400px;
+    max-height: 600px;
     height: auto;
-    object-fit: contain;
+    object-fit: cover;
     display: block;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -623,9 +632,16 @@ footer {
     color: var(--color-accent-gold);
 }
 
-/* Adds margin below */
+/* Adds margins headings */
 .project-content h3 {
     margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.intro h3,
+.Projects h3,
+.Gallery h3 {
+    margin-top: 20px;
 }
 
 /* ===================================
@@ -642,7 +658,7 @@ footer {
 
 /* Title styling and positioning */
 .gallery-page .Project-Title h1 {
-    font-size: 52px;
+    font-size: var(--font-size-9xl);
     margin: 0 0 40px 0;
     padding: 20px;
 }
@@ -725,7 +741,7 @@ footer {
 
 /* Contact page title styling and positioning */
 .contact-title h1 {
-    font-size: 52px;
+    font-size: var(--font-size-9xl);
     margin: 0 0 35px 0;
     padding: 20px;
 }
@@ -777,7 +793,7 @@ footer {
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: var(--font-size-md);
     color: black;
     box-sizing: border-box;
 }
@@ -798,7 +814,7 @@ footer {
 .send-btn,
 .clear-btn {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: var(--font-size-lg);
     font-weight: bold;
     padding: 10px 14px;
     background-color: var(--color-accent-gold);
@@ -989,15 +1005,15 @@ footer {
 
     /* Reduce font sizes in item2 */
     .item2 h1 {
-        font-size: 24px;
+        font-size: var(--font-size-2xl);
     }
 
     .item2 h2 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .item2 p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
     }
 
     /* Ensure rating images scale properly on mobile */
@@ -1019,11 +1035,11 @@ footer {
 
     /* Reduce intro heading sizes */
     .intro h1 {
-        font-size: 28px;
+        font-size: var(--font-size-5xl);
     }
 
     .intro h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     /* Limit Education heading width and wrap text */
@@ -1119,15 +1135,15 @@ footer {
 
     /* Reduce headings and body text sizes */
     .item2 h1 {
-        font-size: 22px;
+        font-size: var(--font-size-2xl);
     }
 
     .item2 h2 {
-        font-size: 12px;
+        font-size: var(--font-size-sm);
     }
 
     .item2 p {
-        font-size: 11px;
+        font-size: var(--font-size-xs);
         word-wrap: break-word;
     }
 
@@ -1147,11 +1163,11 @@ footer {
 
     /* Reduce intro heading and link size */
     .intro h1 {
-        font-size: 28px;
+        font-size: var(--font-size-5xl);
     }
 
     .intro h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     /* Center Education and Years content */
@@ -1166,13 +1182,13 @@ footer {
     .Years h1 {
         text-align: center;
         width: 100%;
-        font-size: 26px;
+        font-size: var(--font-size-4xl);
     }
 
     /* Center and resize Education/Years body text */
     .Education p,
     .Years p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
         text-align: center;
     }
 
@@ -1185,7 +1201,7 @@ footer {
     /* Reduce heading sizes for Projects and Gallery sections */
     .Projects h1,
     .Gallery h1 {
-        font-size: 26px;
+        font-size: var(--font-size-4xl);
         margin-top: 0;
         margin-bottom: 5px;
     }
@@ -1193,7 +1209,7 @@ footer {
     /* Adjust "see all" link spacing */
     .Projects h3,
     .Gallery h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
         margin-bottom: 10px;
     }
 
@@ -1230,20 +1246,20 @@ footer {
 
     /* Reduce project content heading and body text sizes */
     .project-content h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .project-content h4 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .project-content p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
     }
 
     /* Reduce Projects page title */
     .Project-Title h1 {
-        font-size: 44px;
+        font-size: var(--font-size-8xl);
         padding: 15px;
     }
 }
@@ -1281,25 +1297,25 @@ footer {
 
     /* Reduce project content heading and body text sizes */
     .project-content h1 {
-        font-size: 24px;
+        font-size: var(--font-size-3xl);
     }
 
     .project-content h3 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
         margin-top: 15px;
     }
 
     .project-content h4 {
-        font-size: 14px;
+        font-size: var(--font-size-base);
         margin-bottom: 20px;
     }
 
     .project-content p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
     }
 
     .Project-Title h1 {
-        font-size: 36px;
+        font-size: var(--font-size-7xl);
         padding: 10px;
     }
 }
@@ -1331,16 +1347,16 @@ footer {
 
     /* Reduce gallery page title, headings and body text sizes */
     .gallery-page .Project-Title h1 {
-        font-size: 44px;
+        font-size: var(--font-size-8xl);
         padding: 15px;
     }
 
     .gallery-item h4 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .gallery-item p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
     }
 }
 
@@ -1360,16 +1376,16 @@ footer {
 
     /* Reduce gallery title, headings and body text sizes */
     .gallery-page .Project-Title h1 {
-        font-size: 36px;
+        font-size: var(--font-size-7xl);
         padding: 10px;
     }
 
     .gallery-item h4 {
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .gallery-item p {
-        font-size: 14px;
+        font-size: var(--font-size-base);
     }
 }
 
@@ -1393,7 +1409,7 @@ footer {
 
     /* Reduce contact title size */
     .contact-title h1 {
-        font-size: 44px;
+        font-size: var(--font-size-8xl);
         padding: 15px;
     }
 }
@@ -1403,8 +1419,7 @@ footer {
 
     /* Adjust contact container padding */
     .contact-container {
-        padding-left: 5%;
-        padding-right: 5%;
+        padding: 20px 5%;
     }
 
     /* Stack contact form vertically */
@@ -1431,7 +1446,7 @@ footer {
 
     /* Reduce contact title size */
     .contact-title h1 {
-        font-size: 36px;
+        font-size: var(--font-size-7xl);
         padding: 10px;
     }
 }
