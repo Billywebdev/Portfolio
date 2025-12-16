@@ -57,12 +57,20 @@
             <option value="Project Collaboration">Project Collaboration</option>
             <option value="Other">Other</option>
           </select>
-          <label class="sr-only" for="FirstName">Name</label>
-          <input type="text" name="FirstName" id="FirstName" placeholder="First name...">
-          <label class="sr-only" for="LastName">Last Name</label>
-          <input type="text" name="LastName" id="LastName" placeholder="Last name...">
+          <div class="name-fields">
+            <div class="name-field">
+              <label class="sr-only" for="FirstName">Name</label>
+              <input type="text" name="FirstName" id="FirstName" placeholder="First name...">
+            </div>
+            <div class="name-field">
+              <label class="sr-only" for="LastName">Last Name</label>
+              <input type="text" name="LastName" id="LastName" placeholder="Last name...">
+            </div>
+          </div>
           <label class="sr-only" for="Email">Email</label>
           <input type="email" name="Email" id="Email" placeholder="Email...">
+          <label class="sr-only" for="Phonenumber">Phone Number</label>
+          <input type="tel" name="Phonenumber" id="Phonenumber" placeholder="Phone number...">
           <div class="button-group">
             <button type="button" class="clear-btn">Clear</button>
             <button type="submit" class="send-btn">Send</button>

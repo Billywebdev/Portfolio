@@ -6,6 +6,7 @@
     /* Colors */
     --bg: hsl(0, 0%, 5%);
     --bg-light: hsl(0, 0%, 10%);
+    --bg-xtra-light: hsl(0, 0%, 15%);
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
     --border: hsl(0, 0%, 15%);
@@ -783,9 +784,22 @@ footer {
     justify-content: space-between;
 }
 
+/* Container for name fields to display side by side */
+.name-fields {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Individual name field containers */
+.name-field {
+    flex: 1;
+}
+
 /* Styles and aligns the input for text, email and textarea */
 .contact-form input[type="text"],
 .contact-form input[type="email"],
+.contact-form input[type="tel"],
 .contact-form select,
 .contact-form textarea {
     width: 100%;
@@ -811,8 +825,7 @@ footer {
 }
 
 /* Styles and aligns send button */
-.send-btn,
-.clear-btn {
+.send-btn {
     font-family: var(--font-body);
     font-size: var(--font-size-lg);
     font-weight: bold;
@@ -825,12 +838,32 @@ footer {
     transition: all 0.3s ease;
 }
 
+/* Styles and aligns clear button */
+.clear-btn {
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    font-weight: bold;
+    padding: 10px 14px;
+    background-color: var(--bg-light);
+    color: var(--text-muted);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
 /* Hover effects for send button */
-.send-btn:hover,
-.clear-btn:hover {
+.send-btn:hover {
     background-color: var(--color-accent-gold-light);
     transform: scale(1.08);
     box-shadow: 0 4px 12px rgba(194, 171, 122, 0.4);
+}
+
+/* Hover effects for clear button */
+.clear-btn:hover {
+    background-color: var(--bg-xtra-light);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(150, 150, 150, 0.5);
 }
 
 /* Label styling for screen-reader only */
