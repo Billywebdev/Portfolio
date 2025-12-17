@@ -18,7 +18,7 @@ function showError (field, errorMsg) {
   field.parentElement.appendChild(msg)
 }
 
-// Function that Remove error message and styling from a form field
+// Function that remove error message and styling from a form field
 function clearError (field) {
   const error = field.parentElement.querySelector('.error-message')
   if (error) error.remove()
@@ -60,7 +60,7 @@ function clearForm () {
   })
 }
 
-// Validation listeners to form fields
+// Eventlisteners to form fields
 firstNameField?.addEventListener('input', () =>
   validate(firstNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
 )
@@ -77,6 +77,12 @@ emailField?.addEventListener('input', () =>
 messageField?.addEventListener('input', () =>
   validate(messageField, /^.{20,}$/, 'Message must be at least 20 characters')
 )
+subjectField?.addEventListener('change', () => {
+  clearError(subjectField)
+  if (subjectField.value) {
+    subjectField.classList.add('input-valid')
+  }
+})
 clearButton?.addEventListener('click', e => {
   e.preventDefault()
   clearForm()
