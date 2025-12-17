@@ -1,4 +1,4 @@
-// Variables for contact form elements
+// Contact form elements
 const contactForm = document.querySelector('.contact-form')
 const messageField = document.getElementById('Message')
 const subjectField = document.getElementById('Subject')
@@ -9,55 +9,40 @@ const phoneNumberField = document.getElementById('Phonenumber')
 const clearButton = document.querySelector('.clear-btn')
 const sendButton = document.querySelector('.send-btn')
 
-// Validation function for name fields (letters only)
-function validateNameField (field) {
+// Validation function
+function validate (field, regex, errorMsg) {
   const value = field.value.trim()
-  const lettersOnlyRegex = /^[A-Öa-ö]+$/
+  const error = field.parentElement.querySelector('.error-message')
 
-  // Remove any existing error message
-  const existingError = field.parentElement.querySelector('.error-message')
-  if (existingError) {
-    existingError.remove()
-  }
+  if (error) error.remove()
+  field.classList.remove('input-error', 'input-valid')
 
-  // Check if field has value and contains only letters
-  if (value && !lettersOnlyRegex.test(value)) {
-    // Create and display error message
-    const errorMessage = document.createElement('span')
-    errorMessage.className = 'error-message'
-    errorMessage.textContent = 'Only letters are allowed'
-    errorMessage.style.color = '#ff6b6b'
-    errorMessage.style.fontSize = '0.75rem'
-    errorMessage.style.marginTop = '4px'
-    errorMessage.style.display = 'block'
-    errorMessage.style.position = 'absolute'
+  if (!value) return true
 
-    // Add red border to input
-    field.style.border = '2px solid #ff6b6b'
-
-    // Insert error message after input
-    field.parentElement.appendChild(errorMessage)
+  if (!regex.test(value)) {
+    const msg = document.createElement('span')
+    msg.className = 'error-message'
+    msg.textContent = errorMsg
+    field.classList.add('input-error')
+    field.parentElement.appendChild(msg)
     return false
-  } else if (value && lettersOnlyRegex.test(value)) {
-    // Add green border if valid
-    field.style.border = '2px solid #4caf50'
-    return true
-  } else {
-    // Reset border if empty
-    field.style.border = ''
-    return true
   }
+
+  field.classList.add('input-valid')
+  return true
 }
 
-// Add event listeners for name validation
-if (firstNameField) {
-  firstNameField.addEventListener('input', function () {
-    validateNameField(firstNameField)
-  })
-}
-
-if (lastNameField) {
-  lastNameField.addEventListener('input', function () {
-    validateNameField(lastNameField)
-  })
-}
+// Add validation listeners
+firstNameField?.addEventListener('input', () =>
+  validate(firstNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
+)
+lastNameField?.addEventListener('input', () =>
+  validate(lastNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
+)
+emailField?.addEventListener('input', () =>
+  validate(
+    emailField,
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    'Must include @ and domain'
+  )
+)

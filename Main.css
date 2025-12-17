@@ -794,6 +794,25 @@ footer {
 /* Individual name field containers */
 .name-field {
     flex: 1;
+    position: relative;
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    display: block;
+    position: absolute;
+}
+
+/* Input field validation states */
+.contact-form input.input-error {
+    border: 2px solid #dc3545 !important;
+}
+
+.contact-form input.input-valid {
+    border: 2px solid #4caf50 !important;
 }
 
 /* Styles and aligns the input for text, email and textarea */
@@ -810,6 +829,16 @@ footer {
     font-size: var(--font-size-md);
     color: black;
     box-sizing: border-box;
+}
+
+/* Blue border on focus */
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border: 2px solid #4a90e2;
 }
 
 /* Creates a min height for textarea */
