@@ -46,3 +46,6 @@ emailField?.addEventListener('input', () =>
     'Must include @ and domain'
   )
 )
+messageField?.addEventListener('input', () =>
+  validate(messageField, /^.{20,}$/, 'Message must be at least 20 characters')
+)

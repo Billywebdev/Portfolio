@@ -807,11 +807,13 @@ footer {
 }
 
 /* Input field validation states */
-.contact-form input.input-error {
+.contact-form input.input-error,
+.contact-form textarea.input-error {
     border: 2px solid #dc3545 !important;
 }
 
-.contact-form input.input-valid {
+.contact-form input.input-valid,
+.contact-form textarea.input-valid {
     border: 2px solid #4caf50 !important;
 }
 
