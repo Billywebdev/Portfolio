@@ -847,6 +847,27 @@ footer {
     color: #4caf50;
 }
 
+/* Success message styling */
+.success-message {
+    background: var(--gradient);
+    border: solid 1px var(--border);
+    border-top: solid 1px var(--highlight);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-lg);
+    color: var(--text);
+    text-align: center;
+    box-shadow: var(--shadow);
+    animation: fadeInSlide 0.3s ease-out;
+}
+
+.success-message .name-highlight {
+    color: var(--color-accent-gold);
+    font-weight: 600;
+}
+
 /* Styles and aligns the input for text, email and textarea */
 .contact-form input[type="text"],
 .contact-form input[type="email"],

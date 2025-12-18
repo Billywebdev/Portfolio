@@ -93,6 +93,20 @@ function clearForm () {
   })
 }
 
+// Show success message
+function showSuccessMessage (firstName) {
+  const successMsg = document.createElement('div')
+  successMsg.className = 'success-message'
+  successMsg.innerHTML = `Thank you <span class="name-highlight">${firstName}</span>! I will contact you soon!`
+
+  contactForm.parentElement.insertBefore(successMsg, contactForm)
+
+  // Remove success message after 5 seconds
+  setTimeout(() => {
+    successMsg.remove()
+  }, 3000)
+}
+
 // Eventlisteners for form fields
 firstNameField?.addEventListener('input', () =>
   validate(firstNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
@@ -119,4 +133,28 @@ subjectField?.addEventListener('change', () => {
 clearButton?.addEventListener('click', e => {
   e.preventDefault()
   clearForm()
+})
+
+contactForm?.addEventListener('submit', e => {
+  e.preventDefault()
+
+  // Check if all required fields are valid (have green borders)
+  const isFirstNameValid = firstNameField.classList.contains('input-valid')
+  const isLastNameValid = lastNameField.classList.contains('input-valid')
+  const isEmailValid = emailField.classList.contains('input-valid')
+  const isSubjectValid = subjectField.classList.contains('input-valid')
+  const isMessageValid = messageField.classList.contains('input-valid')
+
+  // If all required fields are valid, show success message and clear the form
+  if (
+    isFirstNameValid &&
+    isLastNameValid &&
+    isEmailValid &&
+    isSubjectValid &&
+    isMessageValid
+  ) {
+    const firstName = firstNameField.value.trim()
+    showSuccessMessage(firstName)
+    clearForm()
+  }
 })
