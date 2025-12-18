@@ -4,9 +4,9 @@
 
 :root {
     /* Colors */
-    --bg: hsl(0, 0%, 5%);
-    --bg-light: hsl(0, 0%, 10%);
-    --bg-xtra-light: hsl(0, 0%, 15%);
+    --bg: hsl(211, 55%, 10%);
+    --bg-light: hsl(211, 55%, 15%);
+    --bg-xtra-light: hsl(211, 55%, 20%);
     --text: hsl(0, 0%, 95%);
     --text-muted: hsl(0, 0%, 70%);
     --border: hsl(0, 0%, 15%);
@@ -104,7 +104,7 @@ html {
 
 /* Styles main content area with background image */
 main {
-    background-image: url(images/background-image.png);
+    background-image: url(images/background-image-blue.png);
     background-position: center top;
     background-size: 100% auto;
     background-repeat: repeat-y;
@@ -137,9 +137,9 @@ h3 {
 
 /* Styles the fourth heading text - smaller, uses heading font */
 h4 {
-    font-family: var(--font-heading);
-    font-size: var(--font-size-lg);
-    color: var(--text);
+    font-family: var(--font-body);
+    font-size: var(--font-size-xl);
+    color: var(--text-muted);
 }
 
 /* Styles the body text */
@@ -574,6 +574,12 @@ footer {
     margin-top: 10px;
 }
 
+.intro h3,
+.Projects h3,
+.Gallery h3 {
+    margin-top: 20px;
+}
+
 /* ===================================
    PROJECTS PAGE
    =================================== */
@@ -630,18 +636,13 @@ footer {
 
 /* Adds gold color to project titles */
 .project-content h1 {
-    color: var(--color-accent-gold);
+
+    margin-bottom: 5px;
 }
 
 /* Adds margins headings */
 .project-content h3 {
     margin-bottom: 5px;
-    margin-top: 20px;
-}
-
-.intro h3,
-.Projects h3,
-.Gallery h3 {
     margin-top: 20px;
 }
 
@@ -707,9 +708,8 @@ footer {
 }
 
 /* Aligns and styles each gallery item title */
-.gallery-item h4 {
+.gallery-item h3 {
     margin: 8px 0 0 0;
-    color: var(--text);
     padding-left: 10px;
 }
 
@@ -895,7 +895,7 @@ footer {
 .clear-btn:hover {
     background-color: var(--bg-xtra-light);
     transform: scale(1.08);
-    box-shadow: 0 4px 12px rgba(150, 150, 150, 0.5);
+    box-shadow: 0 4px 12px rgba(70, 130, 180, 0.5);
 }
 
 /* Label styling for screen-reader only */
@@ -1416,7 +1416,7 @@ footer {
         padding: 15px;
     }
 
-    .gallery-item h4 {
+    .gallery-item h3 {
         font-size: var(--font-size-md);
     }
 
@@ -1445,7 +1445,7 @@ footer {
         padding: 10px;
     }
 
-    .gallery-item h4 {
+    .gallery-item h3 {
         font-size: var(--font-size-md);
     }
 
