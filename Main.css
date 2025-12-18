@@ -68,6 +68,19 @@
     }
 }
 
+/* Fade-in animation for error messages */
+@keyframes fadeInError {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Imported fonts */
 @font-face {
     font-family: Amulya;
@@ -800,10 +813,11 @@ footer {
 /* Error message styling */
 .error-message {
     color: #dc3545;
-    font-size: 0.75rem;
-    margin-top: 4px;
+    font-size: var(--font-size-base);
+    margin-top: 2px;
     display: block;
     position: absolute;
+    animation: fadeInError 0.3s ease-out;
 }
 
 /* Input field validation states */
@@ -816,6 +830,21 @@ footer {
 .contact-form textarea.input-valid,
 .contact-form select.input-valid {
     border: 2px solid #4caf50 !important;
+}
+
+/* Character counter styles */
+.char-counter {
+    font-size: var(--font-size-base);
+    display: block;
+    position: absolute;
+}
+
+.char-counter.counter-invalid {
+    color: #dc3545;
+}
+
+.char-counter.counter-valid {
+    color: #4caf50;
 }
 
 /* Styles and aligns the input for text, email and textarea */
@@ -1500,7 +1529,7 @@ footer {
 
     /* Adjust gap in right form column */
     .contact-form .form-right {
-        gap: 12px;
+        gap: 22px;
         justify-content: space-between;
     }
 
