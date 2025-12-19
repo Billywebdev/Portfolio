@@ -42,7 +42,7 @@
         <h1>Contact</h1>
       </section>
       <!-- Contact form -->
-      <form class="contact-form" method="post">
+      <form class="contact-form" method="post" novalidate>
         <!-- Left column with message textarea -->
         <div class="form-left">
           <label class="sr-only" for="Message">Message</label>
@@ -50,13 +50,15 @@
         </div>
         <!-- Right column with subject, name, email fields and send button -->
         <div class="form-right">
-          <label class="sr-only" for="Subject">Subject</label>
-          <select name="Subject" id="Subject">
-            <option value="" disabled selected>Select a subject...</option>
-            <option value="Job Opportunity">Job Opportunity</option>
-            <option value="Project Collaboration">Project Collaboration</option>
-            <option value="Other">Other</option>
-          </select>
+          <div>
+            <label class="sr-only" for="Subject">Subject</label>
+            <select name="Subject" id="Subject">
+              <option value="" disabled selected>Select a subject...</option>
+              <option value="Job Opportunity">Job Opportunity</option>
+              <option value="Project Collaboration">Project Collaboration</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
           <div class="name-fields">
             <div class="name-field">
               <label class="sr-only" for="FirstName">Name</label>
