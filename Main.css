@@ -126,7 +126,6 @@ main {
 
 /* Make sure content takes full height of viewport */
 body {
-  width: 100vw;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -679,6 +678,10 @@ footer {
   margin-top: 20px;
 }
 
+.project-content h4 {
+  margin-bottom: 40px;
+}
+
 /* ===================================
    GALLERY PAGE
    =================================== */
@@ -1009,6 +1012,7 @@ footer {
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
+
   /* Reduce navigation padding on tablets */
   .navbar {
     padding: 25px 0;
@@ -1062,6 +1066,7 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
   /* Stack navigation items and center them */
   .navbar {
     gap: 20px;
@@ -1102,6 +1107,7 @@ footer {
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
+
   /* Adjust page padding and remove fixed height */
   .index-page {
     min-height: auto;
@@ -1119,7 +1125,7 @@ footer {
   }
 
   /* Ensure child divs fill container width */
-  .container > div {
+  .container>div {
     width: 100%;
     box-sizing: border-box;
   }
@@ -1243,6 +1249,7 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
   /* Reduce padding for mobile devices */
   .index-page {
     padding: 20px 5%;
@@ -1372,6 +1379,7 @@ footer {
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
+
   /* Adjust projects page spacing */
   .projects-page {
     padding: 30px 5%;
@@ -1410,6 +1418,7 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
   /* Reduce projects page spacing */
   .projects-page {
     padding: 20px 5%;
@@ -1438,8 +1447,8 @@ footer {
 
   ¨
 
-    /* Reduce project content heading and body text sizes */
-    .project-content h1 {
+  /* Reduce project content heading and body text sizes */
+  .project-content h1 {
     font-size: var(--font-size-3xl);
   }
 
@@ -1469,6 +1478,7 @@ footer {
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
+
   /* Adjust gallery page padding */
   .gallery-page {
     padding: 30px 5%;
@@ -1504,6 +1514,7 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
   /* Reduce gallery page padding */
   .gallery-page {
     padding: 20px 5%;
@@ -1536,6 +1547,7 @@ footer {
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
+
   /* Adjust contact container padding */
   .contact-container {
     padding: 30px 5%;
@@ -1556,6 +1568,7 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
   /* Adjust contact container padding */
   .contact-container {
     padding: 20px 5%;
