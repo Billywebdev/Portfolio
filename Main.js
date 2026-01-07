@@ -65,7 +65,7 @@ function validate(field, regex, errorMsg) {
 }
 
 // Function that updates character counter for message field
-function updateCharCounter(field, minLength) {
+function updateCharCounter(field, maxLength) {
   const value = field.value;
   const length = value.length;
 
@@ -78,10 +78,10 @@ function updateCharCounter(field, minLength) {
   // Create counter element
   const counter = document.createElement("span");
   counter.className = "char-counter";
-  counter.textContent = `${length} / ${minLength} characters`;
+  counter.textContent = `${length} / ${maxLength} characters`;
 
   // Style counter based on whether minimum is met
-  if (length < minLength) {
+  if (length > maxLength) {
     counter.classList.add("counter-invalid");
     field.classList.add("input-error");
   } else {
@@ -201,7 +201,7 @@ emailField?.addEventListener("input", () =>
 
 // Update character counter for message field (minimum 20 characters)
 messageField?.addEventListener("input", () =>
-  updateCharCounter(messageField, 20)
+  updateCharCounter(messageField, 40)
 );
 
 // Validate subject dropdown when changed
