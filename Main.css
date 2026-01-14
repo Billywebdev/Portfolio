@@ -4,13 +4,16 @@
 
 :root {
   /* Colors */
-  --bg: hsl(211, 55%, 10%);
-  --bg-light: hsl(211, 55%, 15%);
-  --bg-xtra-light: hsl(211, 55%, 20%);
+  --bg: hsl(211, 0%, 5%);
+  --bg-light: hsl(211, 0%, 10%);
+  --bg-xtra-light: hsl(211, 0%, 15%);
+  --bg-transparent: hsla(211, 0%, 5%, 0.8);
+  --bg-light-transparent: hsla(211, 0%, 10%, 0.8);
   --text: hsl(0, 0%, 95%);
   --text-muted: hsl(0, 0%, 70%);
   --border: hsl(0, 0%, 15%);
   --gradient: linear-gradient(0deg, var(--bg), var(--bg-light));
+  --gradient-transparent: linear-gradient(0deg, var(--bg-transparent), var(--bg-light-transparent));
   --highlight: hsl(0, 0%, 25%);
   --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.7), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
   --color-accent-gold: #c2ab7a;
@@ -46,7 +49,7 @@
 @keyframes fadeIn-from-bottom {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(-20px);
   }
 
   to {
@@ -59,7 +62,7 @@
 @keyframes fadeIn-from-top {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(20px);
   }
 
   to {
@@ -115,13 +118,27 @@ html {
 }
 
 /* Styles main content area with background image */
+
 main {
-  background-image: url(images/background-image-blue.png);
-  background-position: center top;
-  background-size: 100% auto;
-  background-repeat: repeat-y;
-  background-attachment: scroll;
+  position: relative;
   flex: 1;
+  z-index: 1;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Move video lower on laptop screens */
+@media (min-width: 1024px) and (max-width: 1440px) {
+  /* .video-background top will be controlled by JavaScript for scroll effect */
 }
 
 /* Make sure content takes full height of viewport */
@@ -233,6 +250,7 @@ li img {
   align-items: center;
   font-family: var(--font-body);
   box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
 }
 
 /* Positions nav pages in an absoluted position with gap between */
@@ -342,6 +360,9 @@ footer {
   align-items: center;
   gap: 25px;
   box-shadow: var(--shadow);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(6px);
 }
 
 /* Adds a row flex layout to footer content */
@@ -470,7 +491,7 @@ footer {
 /* Styles the sections of the main grid and makes sure the take upp all the space within the grid. Adds an*/
 .container div section {
   background-color: var(--bg-light);
-  background: var(--gradient);
+  background: var(--gradient-transparent);
   border: solid 1px var(--border);
   border-top: solid 1px var(--highlight);
   border-radius: 10px;
@@ -478,6 +499,7 @@ footer {
   height: 100%;
   animation: fadeIn-from-bottom 1s ease-out;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
 }
 
 /* Pushes the first box of the grid across the top two columns*/
@@ -642,7 +664,7 @@ footer {
   width: 1200px;
   max-width: 100%;
   background-color: var(--bg-light);
-  background: var(--gradient);
+  background: var(--gradient-transparent);
   border: solid 1px var(--border);
   border-top: solid 1px var(--highlight);
   border-radius: 10px;
@@ -650,6 +672,7 @@ footer {
   display: flex;
   align-items: flex-start;
   box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
 }
 
 /* Resizes and styles each projects image */
@@ -719,7 +742,7 @@ footer {
 .gallery-item {
   border: solid 1px var(--border);
   background: var(--bg-light);
-  background: var(--gradient);
+  background: var(--gradient-transparent);
   border-top: solid 1px var(--highlight);
   border-radius: 10px;
   display: flex;
@@ -731,11 +754,12 @@ footer {
   transform-origin: center;
   will-change: transform;
   box-shadow: var(--shadow);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
 }
 
 .gallery-item div {
-  background: var(--bg-light);
-  background: var(--gradient);
+  border-top: solid 1px var(--border);
 }
 
 /* Resizes and styles each gallery item image */
