@@ -220,28 +220,3 @@ clearButton?.addEventListener('click', e => {
 
 // Validate form on submission
 contactForm?.addEventListener('submit', handleFormSubmit)
-
-// ========== Video Background Scroll Effect ==========
-document.addEventListener('DOMContentLoaded', function () {
-  const video = document.querySelector('.video-background')
-  if (!video) return
-
-  function updateVideoTop () {
-    // Only apply on laptop screens
-    if (window.innerWidth >= 1024 && window.innerWidth <= 1440) {
-      if (window.scrollY === 0) {
-        video.style.setProperty('top', '80px', 'important')
-      } else {
-        video.style.setProperty('top', '0px', 'important')
-      }
-    } else {
-      // Reset for other screen sizes
-      video.style.removeProperty('top')
-    }
-  }
-
-  window.addEventListener('scroll', updateVideoTop)
-  window.addEventListener('resize', updateVideoTop)
-  // Initial check
-  updateVideoTop()
-})()
