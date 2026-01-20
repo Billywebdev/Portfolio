@@ -223,22 +223,22 @@ h3 a:hover::after {
 
 /* Align icon and link text horizontally inside each list item */
 .nav-left li,
-.nav-right li {
+.nav-right li,
+.nav-left li {
   display: flex;
   align-items: center;
   gap: 8px;
+  color: var(--text);
 }
 
 /* Styles list item images with fixed dimensions */
-li img {
-  width: 25px;
-  height: 20px;
+li img,
+.nav-icon {
+  width: 30px;
+  height: 25px;
   margin: 0;
   display: block;
-}
-
-.Projects-img {
-  width: 20px;
+  stroke: var(--text);
 }
 
 /* Adds background color, padding around elements and positions nav items correctly */
@@ -281,11 +281,20 @@ li img {
   text-decoration: none;
   font-size: var(--font-size-xl);
   font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 
 /* Active state color for current page in navigation */
 .nav-left li.active a {
   color: var(--text-muted);
+}
+
+.nav-left li.active .nav-icon {
+  color: var(--text-muted);
+  stroke: var(--text-muted);
 }
 
 /* Smooth hover effect for left nav links */
@@ -301,6 +310,12 @@ li img {
 /* Changes left nav link text color on hover */
 .nav-left a:hover {
   color: var(--text-muted);
+}
+
+/* Change SVG icon color on hover */
+.nav-left li:hover .nav-icon {
+  color: var(--text-muted);
+  stroke: var(--text-muted);
 }
 
 /* Style Contact button */
@@ -339,11 +354,9 @@ li img {
   margin-bottom: 10px;
 }
 
-/* Styles name under the portrait */
-.nav-center span {
-  font-family: var(--font-script);
-  color: var(--text);
+.nav-center h1 {
   font-size: var(--font-size-6xl);
+  color: var(--text);
 }
 
 /* ===================================
@@ -418,6 +431,16 @@ footer {
 .footer-social img {
   width: 24px;
   height: 24px;
+}
+
+/* Footer social SVG icon color */
+.footer-icon {
+  fill: var(--text);
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  transition: fill 0.3s;
 }
 
 /* Adds a divider */
@@ -620,11 +643,49 @@ footer {
   overflow: hidden;
 }
 
+/* Carousel container with hidden overflow */
+.carousel-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Carousel track holds all slides */
+.carousel-track {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  animation: spin 30s linear infinite;
+}
+
+/* Individual carousel slides */
+.carousel-slide {
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+/* Infinite scrolling animation */
+@keyframes spin {
+  from {
+    translate: 0;
+  }
+
+  to {
+    translate: -316%;
+  }
+}
+
 /* Adds margin to Projects and Gallery heading text */
 .Projects h1,
 .Gallery h1 {
   margin-top: 20px;
-  margin-bottom: 5px;
 }
 
 /* Resizes and styles images in Projects and Gallery sections */
@@ -632,9 +693,11 @@ footer {
 .Gallery img {
   width: 100%;
   height: 100%;
+}
+
+.Projects img {
   object-fit: cover;
-  border-radius: 0 0 10px 10px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .intro h3,
@@ -1018,7 +1081,7 @@ footer {
 .clear-btn:hover {
   background-color: var(--bg-xtra-light);
   transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(70, 130, 180, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 /* Label styling for screen-reader only */
@@ -1140,6 +1203,30 @@ footer {
 /* ===================================
    RESPONSIVE STYLES - INDEX PAGE
    =================================== */
+/*Laptop size */
+@media (min-width: 1281px) and (max-width: 1440px) {
+
+  /* Infinite scrolling animation */
+  /* Carousel track holds all slides */
+  .carousel-track {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+    animation: spin 30s linear infinite;
+  }
+
+  /* Infinite scrolling animation */
+  @keyframes spin {
+    from {
+      translate: 0;
+    }
+
+    to {
+      translate: -347%;
+    }
+  }
+}
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {

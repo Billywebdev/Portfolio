@@ -65,7 +65,7 @@ function validate (field, regex, errorMsg) {
 }
 
 // Function that updates character counter for message field
-function updateCharCounter (field, maxLength) {
+function updateCharCounter (field, minLength) {
   const value = field.value
   const length = value.length
 
@@ -78,10 +78,10 @@ function updateCharCounter (field, maxLength) {
   // Create counter element
   const counter = document.createElement('span')
   counter.className = 'char-counter'
-  counter.textContent = `${length} / ${maxLength} characters`
+  counter.textContent = `${length} / ${minLength} tecken`
 
   // Style counter based on whether minimum is met
-  if (length > maxLength) {
+  if (length < minLength) {
     counter.classList.add('counter-invalid')
     field.classList.add('input-error')
   } else {
@@ -118,7 +118,7 @@ function showSuccessMessage (firstName) {
   // Create success message element
   const successMsg = document.createElement('div')
   successMsg.className = 'success-message'
-  successMsg.innerHTML = `Thank you <span class="name-highlight">${firstName}</span>! I will contact you soon!`
+  successMsg.innerHTML = `Tack <span class="name-highlight">${firstName}</span>! Jag kommer att kontakta dig snart!`
 
   // Insert message above the form
   contactForm.parentElement.insertBefore(successMsg, contactForm)
@@ -136,11 +136,11 @@ function handleFormSubmit (e) {
 
   // Define all required fields
   const fields = [
-    { field: firstNameField, name: 'First name' },
-    { field: lastNameField, name: 'Last name' },
-    { field: emailField, name: 'Email' },
-    { field: subjectField, name: 'Subject' },
-    { field: messageField, name: 'Message' }
+    { field: firstNameField, name: 'Förnamn' },
+    { field: lastNameField, name: 'Efternamn' },
+    { field: emailField, name: 'E-post' },
+    { field: subjectField, name: 'Ämne' },
+    { field: messageField, name: 'Meddelande' }
   ]
 
   let hasErrors = false
@@ -150,7 +150,7 @@ function handleFormSubmit (e) {
     if (field && !field.value.trim()) {
       // Use special styling for message field error
       const customClass = field === messageField ? 'message-required' : null
-      showError(field, `${name} required`, customClass)
+      showError(field, `${name} krävs`, customClass)
       hasErrors = true
     }
   })
@@ -182,12 +182,12 @@ function handleFormSubmit (e) {
 // ========== Event Listeners ==========
 // Validate first name on input (letters only)
 firstNameField?.addEventListener('input', () =>
-  validate(firstNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
+  validate(firstNameField, /^[A-Öa-ö]+$/, 'Bara bokstäver är tillåtna')
 )
 
 // Validate last name on input (letters only)
 lastNameField?.addEventListener('input', () =>
-  validate(lastNameField, /^[A-Öa-ö]+$/, 'Only letters are allowed')
+  validate(lastNameField, /^[A-Öa-ö]+$/, 'Bara bokstäver är tillåtna')
 )
 
 // Validate email on input (must have @ and domain)
@@ -195,13 +195,13 @@ emailField?.addEventListener('input', () =>
   validate(
     emailField,
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    'Must include @ and domain'
+    'Måste innehålla @ och domän'
   )
 )
 
 // Update character counter for message field (minimum 20 characters)
 messageField?.addEventListener('input', () =>
-  updateCharCounter(messageField, 40)
+  updateCharCounter(messageField, 20)
 )
 
 // Validate subject dropdown when changed
