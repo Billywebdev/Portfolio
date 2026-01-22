@@ -648,7 +648,7 @@ footer {
   width: 100%;
   height: 100%;
   display: flex;
-  overflow-x: auto;
+  overflow: hidden;
   margin-top: 20px;
 }
 
@@ -662,7 +662,10 @@ footer {
   align-items: center;
   justify-content: flex-start;
   gap: 1em;
-  animation: spin 30s linear infinite;
+  flex: 0 0 auto;
+  will-change: transform;
+  animation: scroll 30s linear infinite;
+  padding-right: 1em;
 }
 
 /* Individual carousel slides */
@@ -672,13 +675,13 @@ footer {
 }
 
 /* Infinite scrolling animation */
-@keyframes spin {
+@keyframes scroll {
   from {
-    translate: 0;
+    transform: translateX(0);
   }
 
   to {
-    translate: -316%;
+    transform: translateX(-100%);
   }
 }
 
@@ -835,6 +838,10 @@ footer {
 
 .gallery-item div {
   border-top: solid 1px var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
 }
 
 /* Resizes and styles each gallery item image */
@@ -848,8 +855,20 @@ footer {
 
 /* Aligns and styles each gallery item title */
 .gallery-item h3 {
+  font-family: var(--font-heading);
   margin: 8px 0 0 0;
   padding-left: 10px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Place the optional h4 to the right of h3 */
+.gallery-item h4 {
+  margin: 8px 10px 0 0;
+  color: var(--text-muted);
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
 }
 
 /* Aligns and styles each gallery item description text */
@@ -858,6 +877,8 @@ footer {
   color: var(--text-muted);
   padding-left: 10px;
   padding-right: 10px;
+  grid-column: 1 / -1;
+  grid-row: 2;
 }
 
 /* Scale up and add shadow on hover for gallery items */
@@ -1204,29 +1225,8 @@ footer {
    RESPONSIVE STYLES - INDEX PAGE
    =================================== */
 /*Laptop size */
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1281px) and (max-width: 1440px) {}
 
-  /* Infinite scrolling animation */
-  /* Carousel track holds all slides */
-  .carousel-track {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 1em;
-    animation: spin 30s linear infinite;
-  }
-
-  /* Infinite scrolling animation */
-  @keyframes spin {
-    from {
-      translate: 0;
-    }
-
-    to {
-      translate: -347%;
-    }
-  }
-}
 
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
@@ -1242,7 +1242,6 @@ footer {
     width: 100%;
     max-width: 1100px;
     gap: 12px;
-    grid-auto-rows: auto;
     margin: 0 auto;
     grid-template-columns: 1fr 1fr;
   }
@@ -1343,7 +1342,7 @@ footer {
   /* Add padding to Projects and Gallery sections */
   .Projects,
   .Gallery {
-    padding: 15px 15px 0 15px;
+    padding: 15px 0 0 0;
     overflow: hidden;
   }
 
@@ -1363,8 +1362,7 @@ footer {
   }
 
   /* Make Projects and Gallery images extend beyond padding */
-  .Projects img,
-  .Gallery img {
+  .Projects img {
     position: relative;
     width: calc(100% + 30px);
   }
@@ -1470,7 +1468,7 @@ footer {
   /* Add padding to Projects and Gallery sections */
   .Projects,
   .Gallery {
-    padding: 15px 15px 0 15px;
+    padding-top: 15px;
   }
 
   /* Reduce heading sizes for Projects and Gallery sections */
@@ -1493,6 +1491,21 @@ footer {
   .Gallery img {
     position: relative;
     width: calc(100% + 30px);
+  }
+
+  /* Constrain carousel height on mobile */
+  .carousel-container {
+    height: 250px;
+  }
+
+  .carousel-slide {
+    height: auto;
+  }
+
+  .carousel-slide img {
+    height: 250px;
+    width: auto;
+    object-fit: contain;
   }
 }
 
