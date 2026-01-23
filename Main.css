@@ -664,7 +664,7 @@ footer {
   gap: 1em;
   flex: 0 0 auto;
   will-change: transform;
-  animation: scroll 30s linear infinite;
+  animation: carousel 40s linear infinite;
   padding-right: 1em;
 }
 
@@ -674,8 +674,8 @@ footer {
   height: 100%;
 }
 
-/* Infinite scrolling animation */
-@keyframes scroll {
+/* Infinite carousel animation */
+@keyframes carousel {
   from {
     transform: translateX(0);
   }
@@ -701,6 +701,20 @@ footer {
 .Projects img {
   object-fit: cover;
   margin-top: 20px;
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Floating animation for Projects image */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
 }
 
 .intro h3,
@@ -742,6 +756,22 @@ footer {
   align-items: flex-start;
   box-shadow: var(--shadow);
   backdrop-filter: blur(6px);
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+
 }
 
 /* Resizes and styles each projects image */
@@ -762,6 +792,18 @@ footer {
   text-align: left;
   width: 50%;
   padding: 30px;
+}
+
+/* Flexbox container for h1 and h2 to position them on same line */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-content h2 {
+  font-size: var(--font-size-3xl);
+  color: var(--text-muted);
 }
 
 /* Adds margins headings */
@@ -834,6 +876,9 @@ footer {
   box-shadow: var(--shadow);
   overflow: hidden;
   backdrop-filter: blur(6px);
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
 }
 
 .gallery-item div {
