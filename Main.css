@@ -23,7 +23,6 @@
   /* Font Families */
   --font-heading: Montserrat;
   --font-body: Open Sans, sans-serif;
-  --font-script: GreatVibes;
 
   /* Font Sizes */
   --font-size-xs: 0.6875rem;
@@ -226,8 +225,7 @@ h3 a:hover::after {
 
 /* Align icon and link text horizontally inside each list item */
 .nav-left li,
-.nav-right li,
-.nav-left li {
+.nav-right li {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -485,12 +483,6 @@ footer {
   color: var(--color-accent-gold);
 }
 
-/* Styles seperator between footer links */
-.footer-separator {
-  color: var(--text-muted);
-  font-size: var(--font-size-base);
-}
-
 /* ===================================
    INDEX PAGE
    =================================== */
@@ -519,7 +511,6 @@ footer {
 
 /* Styles the sections of the main grid and makes sure the take upp all the space within the grid. Adds an*/
 .container div section {
-  background-color: var(--bg-light);
   background: var(--gradient-transparent);
   border: solid 1px var(--border);
   border-top: solid 1px var(--highlight);
@@ -586,30 +577,6 @@ footer {
   margin: 0;
   justify-self: center;
   text-align: center;
-}
-
-/* Experience item layout */
-.experience-item {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Experience h2 with year aligned to the right */
-.experience-item h2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 25px;
-  margin-bottom: 0px;
-}
-
-/* Year styling for experience items */
-.experience-year {
-  color: var(--text-muted);
-  font-family: var(--font-body);
-  white-space: nowrap;
-  flex-shrink: 0;
-  margin-left: 15px;
 }
 
 /* Positions skills titles next to their rating images */
@@ -744,7 +711,7 @@ footer {
 .intro h3,
 .Projects h3,
 .Gallery h3 {
-  margin-top: 0.618em;
+  margin-top: var(--gap-m);
 }
 
 /* ===================================
@@ -770,14 +737,14 @@ footer {
 .project-item {
   width: 1200px;
   max-width: 100%;
-  background-color: var(--bg-light);
+  height: 450px;
   background: var(--gradient-transparent);
   border: solid 1px var(--border);
   border-top: solid 1px var(--highlight);
   border-radius: 10px;
   padding: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   box-shadow: var(--shadow);
   backdrop-filter: blur(6px);
   animation: appear linear;
@@ -802,13 +769,17 @@ footer {
 .project-item img {
   flex: 0 0 50%;
   width: 50%;
-  min-height: 400px;
-  max-height: 600px;
-  height: auto;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
+  padding: var(--gap-l);
+  box-sizing: border-box;
   display: block;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  transition: transform 200ms ease;
+}
+
+/* Scale up rosmarin and vilda-djur images on hover */
+.project-item img:hover {
+  transform: scale(1.03);
 }
 
 /* Styles and positions each projects text */
@@ -884,7 +855,6 @@ footer {
 /* Styles and aligns each gallery item*/
 .gallery-item {
   border: solid 1px var(--border);
-  background: var(--bg-light);
   background: var(--gradient-transparent);
   border-top: solid 1px var(--highlight);
   border-radius: 10px;
@@ -1288,10 +1258,6 @@ footer {
 /* ===================================
    RESPONSIVE STYLES - INDEX PAGE
    =================================== */
-/*Laptop size */
-@media (min-width: 1281px) and (max-width: 1440px) {}
-
-
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
 
@@ -1351,7 +1317,7 @@ footer {
   }
 
   .item2 p {
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-md);
   }
 
   /* Ensure rating images scale properly on mobile */
@@ -1483,7 +1449,7 @@ footer {
   }
 
   .item2 p {
-    font-size: var(--font-size-m);
+    font-size: var(--font-size-md);
   }
 
   /* Ensure rating images scale properly on mobile */
@@ -1631,13 +1597,15 @@ footer {
   .project-item {
     flex-direction: column;
     align-items: stretch;
+    height: auto;
   }
 
   /* Adjust project image border radius for vertical layout */
   .project-item img {
+    flex: none;
     width: 100%;
-    height: auto;
-    border-radius: 10px 10px 0 0;
+    height: 250px;
+    object-fit: contain;
   }
 
   /* Make project content full width */
@@ -1645,9 +1613,8 @@ footer {
     width: 100%;
     box-sizing: border-box;
     padding: 15px;
+    overflow: hidden;
   }
-
-  ¨
 
   /* Reduce project content heading and body text sizes */
   .project-content h1 {
