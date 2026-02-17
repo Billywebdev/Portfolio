@@ -7,4 +7,3 @@ The whole website is responsive for mobile, tablet and desktop.
 
 How to run it locally:
 git clone https://github.com/Billywebdev/Portfolio.git or download as Zip.
-<img width="1918" height="890" alt="image" src="https://github.com/user-attachments/assets/5e325513-60b1-4851-9950-37efcdf66eab" />
