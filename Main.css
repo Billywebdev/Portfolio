@@ -1,3 +1,16 @@
+/* Modern arrow icon for links */
+.arrow-icon {
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: inherit;
+}
+
+/* Animate arrow icon on hover for h3 links */
+h3 a:hover .arrow-icon {
+  transform: translateX(4px);
+}
+
 /* ===================================
    CSS VARIABLES
    =================================== */
