@@ -363,8 +363,8 @@ li img,
 
 /* Changes the size of the portrait image and put a margin between the text */
 .nav-center img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: auto;
   margin-bottom: 10px;
 }
 
@@ -517,7 +517,7 @@ footer {
   grid-auto-rows: 400px;
   width: 1200px;
   max-width: 100%;
-  gap: 10px;
+  gap: var(--gap-m);
   justify-items: stretch;
   align-items: stretch;
 }
@@ -560,7 +560,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 10px;
+  gap: var(--gap-m);
 }
 
 /* Adds padding within "Skills" and "Experiences" sections */
@@ -573,6 +573,11 @@ footer {
 
 .item2 section h1 {
   margin-bottom: var(--gap-m);
+}
+
+.Experiences p {
+  word-break: break-word;
+  font-size: var(--font-size-md);
 }
 
 /* Grid layout for Skills cards; keep heading full width */
@@ -611,7 +616,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px;
+  gap: var(--gap-m);
 }
 
 /* Spans one of the three boxes to the top*/
@@ -1256,8 +1261,8 @@ footer {
 
   /* Reduce portrait size */
   .nav-center img {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: auto;
   }
 
   /* Aligns footer items vertically */
@@ -1330,7 +1335,7 @@ footer {
   }
 
   .item2 p {
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-base);
   }
 
   /* Ensure rating images scale properly on mobile */
