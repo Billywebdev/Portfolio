@@ -584,7 +584,7 @@ footer {
 .Skills {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gap-l);
+  gap: var(--gap-m);
 }
 
 .Skills h1 {
@@ -595,6 +595,15 @@ footer {
   margin: 0;
   justify-self: center;
   text-align: center;
+}
+
+.Verktyg {
+  font-family: var(--font-body) !important;
+  color: var(--text-xtra-muted);
+  padding: var(--gap-s);
+  border: var(--text-xtra-muted) 1px solid;
+  display: inline-block;
+  border-radius: var(--gap-s);
 }
 
 /* Positions skills titles next to their rating images */
@@ -829,14 +838,6 @@ footer {
   margin-top: var(--gap-xs);
 }
 
-.Verktyg {
-  font-family: var(--font-body) !important;
-  color: var(--text-xtra-muted);
-  padding: 5px;
-  border: var(--text-xtra-muted) 1px solid;
-  display: inline-block;
-  border-radius: 5px;
-}
 
 /* ===================================
    GALLERY PAGE
@@ -1276,6 +1277,21 @@ footer {
 /* ===================================
    RESPONSIVE STYLES - INDEX PAGE
    =================================== */
+@media (min-width: 820px) and (max-width: 1000px) {
+
+  .item2 p {
+    font-size: var(--font-size-base);
+  }
+
+  .Skills {
+    gap: var(--gap-m);
+  }
+
+  .Skills h3 {
+    font-size: var(--font-size-lg);
+  }
+}
+
 /* Tablet size */
 @media (min-width: 820px) and (max-width: 1280px) {
 
@@ -1332,17 +1348,6 @@ footer {
 
   .item2 h2 {
     font-size: var(--font-size-md);
-  }
-
-  .item2 p {
-    font-size: var(--font-size-base);
-  }
-
-  /* Ensure rating images scale properly on mobile */
-  .Skills h2 img {
-    height: 0.5em;
-    width: auto;
-    flex-shrink: 0;
   }
 
   /* Reduce intro section padding */
@@ -1442,7 +1447,7 @@ footer {
   /* Keep Skills and Experiences side by side on mobile */
   .item2 {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(1, minmax(0, 1fr));
     gap: 12px;
   }
 
@@ -1453,7 +1458,6 @@ footer {
     padding: 10px;
     padding-bottom: 20px;
     overflow: hidden;
-    min-height: 260px;
     height: 100%;
   }
 
@@ -1470,11 +1474,15 @@ footer {
     font-size: var(--font-size-md);
   }
 
+
+  .Skills {
+    gap: var(--gap-m);
+  }
+
+
   /* Ensure rating images scale properly on mobile */
-  .Skills h2 img {
-    height: 1em;
-    width: auto;
-    flex-shrink: 0;
+  .Skills h3 {
+    font-size: var(--font-size-lg);
   }
 
   /* Maintain two-column grid for item3 on mobile */
@@ -1558,6 +1566,8 @@ footer {
     object-fit: contain;
   }
 }
+
+
 
 /* ===================================
    RESPONSIVE STYLES - PROJECTS PAGE
