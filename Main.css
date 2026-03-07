@@ -635,7 +635,7 @@ footer {
 }
 
 .intro h1 {
-  font-size: var(--font-size-5xl);
+  font-size: var(--font-size-2xl);
   line-height: 1.3;
 
 }
@@ -1362,7 +1362,7 @@ footer {
 
   /* Reduce intro heading sizes */
   .intro h1 {
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-2xl);
   }
 
   .intro h3 {
@@ -1455,8 +1455,7 @@ footer {
   .item2 section {
     display: flex;
     flex-direction: column;
-    padding: 10px;
-    padding-bottom: 20px;
+    padding: var(--gap-l);
     overflow: hidden;
     height: 100%;
   }
@@ -1485,20 +1484,8 @@ footer {
     font-size: var(--font-size-lg);
   }
 
-  /* Maintain two-column grid for item3 on mobile */
-  .item3 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
-  /* Reduce intro heading and link size */
-  .intro h1 {
-    font-size: var(--font-size-5xl);
-  }
-
-  .intro h3 {
-    font-size: var(--font-size-md);
+  .item3 section {
+    padding: var(--gap-l);
   }
 
   /* Center Education and Years content */
