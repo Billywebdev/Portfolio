@@ -73,18 +73,20 @@
       <section class="contact-title">
         <h1>Kontakt</h1>
       </section>
+      <!-- Include Forminit SDK -->
+      <script src="https://forminit.com/sdk/v1/forminit.js"></script>
       <!-- Contact form -->
-      <form class="contact-form" action="https://formspree.io/f/xqedyvez" method="POST" novalidate>
+      <form id="contact-form" class="contact-form" action="https://formspree.io/f/xqedyvez" method="POST" novalidate>
         <!-- Left column with message textarea -->
         <div class="form-left">
           <label class="sr-only" for="Message">Meddelande</label>
-          <textarea name="Message" id="Message" placeholder="Meddelande..." rows="8"></textarea>
+          <textarea name="fi-text-message" id="Message" placeholder="Meddelande..." rows="8" required></textarea>
         </div>
         <!-- Right column with subject, name, email fields and send button -->
         <div class="form-right">
           <div>
             <label class="sr-only" for="Subject">Ämne</label>
-            <select name="Subject" id="Subject">
+            <select name="fi-select-subject" id="Subject" required>
               <option value="" disabled selected>Välj ett ämne...</option>
               <option value="Job Opportunity">Jobbmöjlighet</option>
               <option value="Project Collaboration">Samarbete kring projekt</option>
@@ -94,25 +96,69 @@
           <div class="name-fields">
             <div class="name-field">
               <label class="sr-only" for="FirstName">Namn</label>
-              <input type="text" name="FirstName" id="FirstName" placeholder="Förnamn...">
+              <input type="text" name="fi-sender-firstName" id="FirstName" placeholder="Förnamn..." required>
             </div>
             <div class="name-field">
               <label class="sr-only" for="LastName">Efternamn</label>
-              <input type="text" name="LastName" id="LastName" placeholder="Efternamn...">
+              <input type="text" name="fi-sender-lastName" id="LastName" placeholder="Efternamn..." required>
             </div>
           </div>
           <div>
             <label class="sr-only" for="Email">Email</label>
-            <input type="email" name="Email" id="Email" placeholder="Email...">
+            <input type="email" name="fi-sender-email" id="Email" placeholder="Email..." required>
           </div>
           <label class="sr-only" for="Phonenumber">Telefonnummer</label>
-          <input type="tel" name="Phonenumber" id="Phonenumber" placeholder="Telefonnummer...">
+          <input type="tel" name="fi-sender-phone" id="Phonenumber" placeholder="Telefonnummer (valfri)...">
           <div class="button-group">
             <button type="button" class="clear-btn">Rensa</button>
             <button type="submit" class="send-btn">Skicka</button>
           </div>
         </div>
       </form>
+      <div id="result"></div>
+
+      <script>
+        const forminit = new Forminit();
+        const FORM_ID = "5pud23katik";
+
+        document.getElementById("contact-form").addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          // Check if form is valid
+          if (!e.target.checkValidity()) {
+            // Trigger browser validation messages
+            e.target.reportValidity();
+            return;
+          }
+
+          const formData = new FormData(e.target);
+
+          // Ensure phone number is in international format if provided
+          const phone = formData.get("fi-sender-phone");
+          if (phone) {
+            if (phone.startsWith("0")) {
+              // Swedish domestic number: convert to international format
+              formData.set("fi-sender-phone", "+46" + phone.substring(1));
+            } else if (!phone.startsWith("+")) {
+              // No country code prefix: add + sign
+              formData.set("fi-sender-phone", "+" + phone);
+            }
+            // Otherwise it already has + prefix, leave it as is
+          }
+
+          const { data, error } = await forminit.submit(FORM_ID, formData);
+
+          const result = document.getElementById("result");
+
+          if (error) {
+            result.textContent = error.message;
+            return;
+          }
+
+          result.textContent = "Message sent successfully!";
+          e.target.reset();
+        });
+      </script>
     </div>
   </main>
   <!-- Footer section -->

@@ -35,10 +35,6 @@ function clearError (field) {
   const messageError = field.parentElement.querySelector('.message-required')
   if (messageError) messageError.remove()
 
-  // Remove character counter
-  const counter = field.parentElement.querySelector('.char-counter')
-  if (counter) counter.remove()
-
   // Reset validation classes
   field.classList.remove('input-error', 'input-valid')
 }
@@ -62,34 +58,6 @@ function validate (field, regex, errorMsg) {
   // Mark field as valid (green border)
   field.classList.add('input-valid')
   return true
-}
-
-// Function that updates character counter for message field
-function updateCharCounter (field, minLength) {
-  const value = field.value
-  const length = value.length
-
-  // Clear error and validation states
-  clearError(field)
-
-  // Don't show counter if field is empty
-  if (length === 0) return
-
-  // Create counter element
-  const counter = document.createElement('span')
-  counter.className = 'char-counter'
-  counter.textContent = `${length} / ${minLength} tecken`
-
-  // Style counter based on whether minimum is met
-  if (length < minLength) {
-    counter.classList.add('counter-invalid')
-    field.classList.add('input-error')
-  } else {
-    counter.classList.add('counter-valid')
-    field.classList.add('input-valid')
-  }
-
-  field.parentElement.appendChild(counter)
 }
 
 // Function that clears all form fields and removes validation states
@@ -118,7 +86,7 @@ function showSuccessMessage (firstName) {
   // Create success message element
   const successMsg = document.createElement('div')
   successMsg.className = 'success-message'
-  successMsg.innerHTML = `Tack <span class="name-highlight">${firstName}</span>! Jag kommer att kontakta dig snart!`
+  successMsg.innerHTML = `Tack <span class="name-highlight">${firstName}</span> för visat intresse! Jag kommer att svara dig inom kort!`
 
   // Insert message above the form
   contactForm.parentElement.insertBefore(successMsg, contactForm)
@@ -199,10 +167,13 @@ emailField?.addEventListener('input', () =>
   )
 )
 
-// Update character counter for message field (minimum 20 characters)
-messageField?.addEventListener('input', () =>
-  updateCharCounter(messageField, 20)
-)
+// Validate message field (any characters makes it valid)
+messageField?.addEventListener('input', () => {
+  clearError(messageField)
+  if (messageField.value.trim()) {
+    messageField.classList.add('input-valid')
+  }
+})
 
 // Validate subject dropdown when changed
 subjectField?.addEventListener('change', () => {
