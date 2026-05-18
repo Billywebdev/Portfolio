@@ -576,6 +576,9 @@ footer {
 }
 
 .Experiences p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
     word-break: break-word;
     font-size: var(--font-size-md);
 }

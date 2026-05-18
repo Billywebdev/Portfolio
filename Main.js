@@ -94,7 +94,7 @@ function showSuccessMessage (firstName) {
   // Auto-remove message after 3 seconds
   setTimeout(() => {
     successMsg.remove()
-  }, 3000)
+  }, 20000)
 }
 
 // Function that validates form on submission
