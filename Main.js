@@ -191,3 +191,120 @@ clearButton?.addEventListener('click', e => {
 
 // Validate form on submission
 contactForm?.addEventListener('submit', handleFormSubmit)
+
+// ========== THEME TOGGLE ==========
+// Initialize theme on page load
+function initializeTheme () {
+  // Check for saved theme preference or default to 'dark'
+  const savedTheme = localStorage.getItem('theme') || 'dark'
+  setTheme(savedTheme)
+}
+
+// Set the theme and update all UI elements
+function setTheme (theme) {
+  // Update HTML data-theme attribute
+  document.documentElement.setAttribute('data-theme', theme)
+
+  // Save preference to localStorage
+  localStorage.setItem('theme', theme)
+
+  // Update theme toggle button icons
+  const sunIcon = document.querySelector('.sun-icon')
+  const moonIcon = document.querySelector('.moon-icon')
+
+  if (sunIcon && moonIcon) {
+    if (theme === 'light') {
+      sunIcon.style.display = 'none'
+      moonIcon.style.display = 'block'
+    } else {
+      sunIcon.style.display = 'block'
+      moonIcon.style.display = 'none'
+    }
+  }
+
+  // Update video background
+  const video = document.querySelector('.video-background')
+  if (video) {
+    video.src =
+      theme === 'light'
+        ? 'videos/Motion-graphics-light.mp4.mov'
+        : 'videos/Motion-graphics.mp4'
+  }
+
+  // Update portrait image
+  const portraitImg = document.querySelector('.nav-center img')
+  if (portraitImg) {
+    portraitImg.src =
+      theme === 'light'
+        ? 'images/Porträtt-svartvit2-lightmode.png'
+        : 'images/Porträtt-svartvit2.png'
+  }
+
+  // Update hero title image
+  const heroImg = document.getElementById('heroImage')
+  if (heroImg) {
+    heroImg.src =
+      theme === 'light'
+        ? 'images/Hero-title-light-mode.png'
+        : 'images/Hero-title-green-light-reversed.png'
+  }
+
+  // Update designmanifest images
+  const designmanifestCover = document.getElementById('designmanifest-cover')
+  if (designmanifestCover) {
+    const baseName = designmanifestCover.src.includes('lightmode')
+      ? designmanifestCover.src.replace('-lightmode', '')
+      : designmanifestCover.src
+    designmanifestCover.src =
+      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
+  }
+
+  const designmanifestUppslag1 = document.getElementById(
+    'designmanifest-uppslag1'
+  )
+  if (designmanifestUppslag1) {
+    const baseName = designmanifestUppslag1.src.includes('lightmode')
+      ? designmanifestUppslag1.src.replace('-lightmode', '')
+      : designmanifestUppslag1.src
+    designmanifestUppslag1.src =
+      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
+  }
+
+  const designmanifestUppslag2 = document.getElementById(
+    'designmanifest-uppslag2'
+  )
+  if (designmanifestUppslag2) {
+    const baseName = designmanifestUppslag2.src.includes('lightmode')
+      ? designmanifestUppslag2.src.replace('-lightmode', '')
+      : designmanifestUppslag2.src
+    designmanifestUppslag2.src =
+      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
+  }
+
+  const designmanifestUppslag3 = document.getElementById(
+    'designmanifest-uppslag3'
+  )
+  if (designmanifestUppslag3) {
+    const baseName = designmanifestUppslag3.src.includes('lightmode')
+      ? designmanifestUppslag3.src.replace('-lightmode', '')
+      : designmanifestUppslag3.src
+    designmanifestUppslag3.src =
+      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
+  }
+}
+
+// Toggle between dark and light modes
+function toggleTheme () {
+  const currentTheme = localStorage.getItem('theme') || 'dark'
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+  setTheme(newTheme)
+}
+
+// Add event listener to theme toggle button
+const themeToggle = document.getElementById('themeToggle')
+if (themeToggle) {
+  themeToggle.addEventListener('click', toggleTheme)
+}
+
+// Initialize theme on page load
+initializeTheme()

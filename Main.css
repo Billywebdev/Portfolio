@@ -16,7 +16,7 @@ h3 a:hover .arrow-icon {
    =================================== */
 
 :root {
-    /* Colors */
+    /* Colors dark mode */
     --bg: hsl(211, 0%, 5%);
     --bg-light: hsl(211, 0%, 10%);
     --bg-xtra-light: hsl(211, 0%, 15%);
@@ -32,6 +32,23 @@ h3 a:hover .arrow-icon {
     --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.7), 0px 4px 4px hsla(0, 0%, 0%, 0.15);
     --color-accent-gold: #45ac5b;
     --color-accent-gold-light: #4ec267;
+
+    /* Colors light mode */
+    --bg-light-mode: hsl(0, 0%, 98%);
+    --bg-light-mode-dark: hsl(0, 0%, 90%);
+    --bg-light-mode-xtra-dark: hsl(0, 0%, 80%);
+    --bg-light-mode-transparent: hsla(0, 0%, 98%, 0.8);
+    --bg-light-mode-dark-transparent: hsla(0, 0%, 90%, 0.8);
+    --text-light-mode: hsl(0, 0%, 10%);
+    --text-light-mode-muted: hsl(0, 0%, 30%);
+    --color-light-mode-accent: #ba53a3;
+    --color-light-mode-accent-light: #d95fbe;
+    --border-light-mode: hsl(0, 0%, 80%);
+    --gradient-light-mode: linear-gradient(0deg, var(--bg-light-mode), var(--bg-light-mode-dark));
+    --gradient-light-mode-transparent: linear-gradient(0deg, var(--bg-light-mode-transparent), var(--bg-light-mode-dark-transparent));
+
+
+
 
     /* Font Families */
     --font-heading: Montserrat;
@@ -60,6 +77,58 @@ h3 a:hover .arrow-icon {
     --gap-l: 1em;
     --gap-xl: 1.618em;
     --gap-xxl: 2.618em;
+}
+
+/* Light mode theme overrides */
+[data-theme="light"] {
+    /* Light mode colors override */
+    --bg: var(--bg-light-mode);
+    --bg-light: var(--bg-light-mode-dark);
+    --bg-xtra-light: var(--bg-light-mode-xtra-dark);
+    --bg-transparent: var(--bg-light-mode-transparent);
+    --bg-light-transparent: var(--bg-light-mode-dark-transparent);
+    --text: var(--text-light-mode);
+    --text-muted: var(--text-light-mode-muted);
+    --text-xtra-muted: hsl(0, 0%, 60%);
+    --border: var(--border-light-mode);
+    --gradient: var(--gradient-light-mode);
+    --gradient-transparent: var(--gradient-light-mode-transparent);
+    --highlight: hsl(0, 0%, 70%);
+    --shadow: 0px 2px 2px hsla(0, 0%, 0%, 0.1), 0px 4px 4px hsla(0, 0%, 0%, 0.05);
+    --color-accent-gold: var(--color-light-mode-accent);
+    --color-accent-gold-light: var(--color-light-mode-accent-light);
+}
+
+
+
+/* Theme toggle button styling */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: var(--bg);
+    font-size: 20px;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 
@@ -107,21 +176,6 @@ h3 a:hover .arrow-icon {
 }
 
 /* Imported fonts */
-@font-face {
-    font-family: Amulya;
-    src: url(fonts/Amulya-Variable.ttf);
-}
-
-@font-face {
-    font-family: Synonym;
-    src: url(fonts/Synonym-Variable.ttf);
-}
-
-@font-face {
-    font-family: GreatVibes;
-    src: url(fonts/GreatVibes-Regular.ttf);
-}
-
 @font-face {
     font-family: Montserrat;
     src: url(fonts/Montserrat-VariableFont_wght.ttf);
@@ -253,6 +307,7 @@ li img,
     margin: 0;
     display: block;
     stroke: var(--text);
+    fill: var(--text);
 }
 
 /* Adds background color, padding around elements and positions nav items correctly */
@@ -309,6 +364,7 @@ li img,
 .nav-left li.active .nav-icon {
     color: var(--text-muted);
     stroke: var(--text-muted);
+    fill: var(--text-muted);
 }
 
 /* Smooth hover effect for left nav links */
@@ -330,6 +386,7 @@ li img,
 .nav-left li:hover .nav-icon {
     color: var(--text-muted);
     stroke: var(--text-muted);
+    fill: var(--text-muted);
 }
 
 /* Style Contact button */
@@ -346,11 +403,26 @@ li img,
     font-weight: bold;
 }
 
+/* Light mode Contact button text styling */
+[data-theme="light"] .nav-right a {
+    color: white;
+}
+
+/* Light mode Contact button icon color - Image */
+[data-theme="light"] .nav-right a img {
+    filter: brightness(0) invert(1);
+}
+
 /* Hover animation for Contact button */
 .nav-right li:hover {
     background-color: var(--color-accent-gold-light);
     transform: scale(1.08);
     box-shadow: 0 4px 12px rgba(78, 194, 103, 0.4);
+}
+
+/* Light mode hover effect for Contact button */
+[data-theme="light"] .nav-right li:hover {
+    box-shadow: 0 4px 12px rgba(11, 47, 212, 0.3);
 }
 
 /* Aligns the portrait image with the name vertically and centered */
