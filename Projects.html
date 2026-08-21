@@ -14,7 +14,13 @@
   <!-- Navigation header -->
   <header>
     <nav class="navbar">
-      <ul class="nav-left">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-controls="site-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Öppna meny</span>
+      </button>
+      <ul class="nav-left" id="site-menu">
         <li>
           <a href="index.html">
             <svg class="nav-icon" width="25" height="25" viewBox="0 0 621 524" xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +86,10 @@
           </button>
         </li>
         <li>
-          <a href="Contact.html"><img src="images/Contact-black.png" alt="Envelope icon">Kontakt</a>
+          <a href="Contact.html"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+              <path d="m5 8 7 5 7-5"></path>
+            </svg>Kontakt</a>
         </li>
       </ul>
     </nav>

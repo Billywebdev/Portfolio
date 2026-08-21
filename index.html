@@ -14,7 +14,13 @@
   <!-- Navigation header -->
   <header>
     <nav class="navbar">
-      <ul class="nav-left">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-controls="site-menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span class="sr-only">Öppna meny</span>
+      </button>
+      <ul class="nav-left" id="site-menu">
         <li class="active">
           <a href="index.html">
             <svg class="nav-icon" width="25" height="25" viewBox="0 0 621 524" xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +86,10 @@
           </button>
         </li>
         <li>
-          <a href="Contact.html"><img src="images/Contact-black.png" alt="Envelope icon">Kontakt</a>
+          <a href="Contact.html"><svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+              <path d="m5 8 7 5 7-5"></path>
+            </svg>Kontakt</a>
         </li>
       </ul>
     </nav>
@@ -99,7 +108,10 @@
             <h1>Om mig</h1>
             <p>Jag studerar Digital Design vid Högskolan Kristianstad och har ett stort intresse för visuell
               kommunikation och
-              användarupplevelse. Jag har arbetat främst med grafisk design, prototyputveckling och webbdesign. Jag är
+              användar&shy;upplevelser. Jag arbetar främst med grafisk design, prototyp&shy;utveckling och
+              webb&shy;design.
+              Jag
+              är
               nyfiken, noggrann och
               drivs av att
               ständigt utvecklas som designer.</p>
@@ -122,7 +134,7 @@
         <!-- Intro, Education, and Years sections -->
         <div class="item3">
           <section class="intro">
-            <h1>Jag kombinerar <span>visuell kommunikation</span> och <span>användarupplevelse</span> för att skapa
+            <h1>Jag kombinerar <span>visuell kommunikation</span> och <span>användarupplevelser</span> för att skapa
               genomtänkta digitala lösningar.</h1>
             <h3><a href="Contact.html">Kontakta mig <span class="arrow-icon" aria-hidden="true"><svg width="18"
                     height="18" viewBox="0 0 18 18" style="vertical-align:middle; margin-bottom:4px;" fill="none"
@@ -166,6 +178,8 @@
                   </svg></span></a></h3>
             <div class="carousel-container">
               <div class="carousel-track">
+                <div class="carousel-slide"><img src="images/Drachenburg.jpg" alt="Drachenburg Affisch"></div>
+                <div class="carousel-slide"><img src="images/SkateFestival.jpg" alt="Skate Festival Affisch"></div>
                 <div class="carousel-slide"><img src="images/1177.jpg" alt="1177 Prototyp"></div>
                 <div class="carousel-slide"><img src="images/Borgafjäll.jpg" alt="Borgafjäll"></div>
                 <div class="carousel-slide"><img src="images/MiniPrint-Poster.png" alt="MiniPrint"></div>
@@ -174,6 +188,8 @@
                 <div class="carousel-slide"><img src="images/KnightRock.png" alt="KnightRock"></div>
               </div>
               <div aria-hidden class="carousel-track">
+                <div class="carousel-slide"><img src="images/Drachenburg.jpg" alt="Drachenburg Affisch"></div>
+                <div class="carousel-slide"><img src="images/SkateFestival.jpg" alt="Skate Festival Affisch"></div>
                 <div class="carousel-slide"><img src="images/1177.jpg" alt="1177 Prototyp"></div>
                 <div class="carousel-slide"><img src="images/Borgafjäll.jpg" alt="Borgafjäll"></div>
                 <div class="carousel-slide"><img src="images/MiniPrint-Poster.png" alt="MiniPrint"></div>

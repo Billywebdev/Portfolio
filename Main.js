@@ -8,6 +8,8 @@ const lastNameField = document.getElementById('LastName')
 const emailField = document.getElementById('Email')
 const phoneNumberField = document.getElementById('Phonenumber')
 const clearButton = document.querySelector('.clear-btn')
+const menuToggle = document.getElementById('menuToggle')
+const siteMenu = document.getElementById('site-menu')
 
 // ========== Helper Functions ==========
 // Function that displays an error message below a form field
@@ -148,6 +150,22 @@ function handleFormSubmit (e) {
 }
 
 // ========== Event Listeners ==========
+menuToggle?.addEventListener('click', () => {
+  const isOpen = menuToggle.getAttribute('aria-expanded') === 'true'
+  menuToggle.setAttribute('aria-expanded', String(!isOpen))
+  siteMenu?.classList.toggle('is-open', !isOpen)
+  menuToggle.querySelector('.sr-only').textContent = isOpen
+    ? 'Öppna meny'
+    : 'Stäng meny'
+})
+
+siteMenu?.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuToggle?.setAttribute('aria-expanded', 'false')
+    siteMenu.classList.remove('is-open')
+  })
+})
+
 // Validate first name on input (letters only)
 firstNameField?.addEventListener('input', () =>
   validate(firstNameField, /^[A-Öa-ö]+$/, 'Bara bokstäver är tillåtna')
