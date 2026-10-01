@@ -120,8 +120,10 @@ h3 a:hover .arrow-icon {
   font-size: 20px;
 }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
+@media (hover: hover) and (pointer: fine) {
+  .theme-toggle:hover {
+    transform: scale(1.1);
+  }
 }
 
 .theme-toggle svg {
@@ -432,16 +434,19 @@ li img,
   filter: brightness(0) invert(1);
 }
 
-/* Hover animation for Contact button */
-.nav-right li:hover {
-  background-color: var(--color-accent-gold-light);
-  transform: scale(1.08);
-  box-shadow: 0 4px 12px rgba(78, 194, 103, 0.4);
-}
+@media (hover: hover) and (pointer: fine) {
 
-/* Light mode hover effect for Contact button */
-[data-theme="light"] .nav-right li:hover {
-  box-shadow: 0 4px 12px rgba(11, 47, 212, 0.3);
+  /* Hover animation for Contact button */
+  .nav-right li:hover {
+    background-color: var(--color-accent-gold-light);
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(78, 194, 103, 0.4);
+  }
+
+  /* Light mode hover effect for Contact button */
+  [data-theme="light"] .nav-right li:hover {
+    box-shadow: 0 4px 12px rgba(11, 47, 212, 0.3);
+  }
 }
 
 /* Refined desktop navigation controls */
@@ -1097,6 +1102,17 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), filter 420ms ease, opacity 420ms ease;
+}
+
+.gallery-grid.is-expanded .gallery-item:not(.is-active) {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.gallery-grid.is-expanded .gallery-item.is-active {
+  transform: scale(1);
 }
 
 /* Styles and aligns each gallery item*/
@@ -1109,17 +1125,27 @@ footer {
   flex-direction: column;
   text-align: left;
   color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
   transition:
-    transform 200ms ease,
-    box-shadow 200ms ease;
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 220ms ease,
+    opacity 320ms ease,
+    filter 320ms ease,
+    grid-column 420ms ease;
   transform-origin: center;
-  will-change: transform;
+  will-change: transform, opacity, filter;
   box-shadow: var(--shadow);
   overflow: hidden;
   backdrop-filter: blur(6px);
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0% cover 20%;
+}
+
+.gallery-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .gallery-item div {
@@ -1164,11 +1190,69 @@ footer {
   margin-top: var(--gap-xs);
 }
 
-/* Scale up and add shadow on hover for gallery items */
-.gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
-  z-index: 2;
+@media (hover: hover) and (pointer: fine) {
+
+  /* Scale up and add shadow on hover for gallery items */
+  .gallery-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+  }
+}
+
+.gallery-item.is-expanded {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  z-index: 3;
+  overflow: visible;
+}
+
+.gallery-item.is-expanded .gallery-close {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallery-item.is-expanded img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  border-radius: 0;
+  background: rgba(15, 17, 22, 0.7);
+}
+
+.gallery-item.is-expanded>div {
+  width: 100%;
+}
+
+.gallery-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(10, 12, 18, 0.8);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 200ms ease, background 200ms ease;
+  z-index: 4;
+}
+
+.gallery-close:hover,
+.gallery-close:focus-visible {
+  transform: scale(1.05);
+  background: rgba(30, 35, 45, 0.95);
 }
 
 /* ===================================
@@ -2086,6 +2170,22 @@ footer {
 
 /* Mobile size */
 @media (max-width: 819px) {
+
+  .gallery-item {
+    cursor: default;
+  }
+
+  .gallery-item img {
+    pointer-events: none;
+  }
+
+  .gallery-item.is-expanded {
+    grid-column: auto;
+  }
+
+  .gallery-close {
+    display: none !important;
+  }
 
   /* Reduce gallery page padding */
   .gallery-page {

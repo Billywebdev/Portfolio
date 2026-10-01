@@ -210,6 +210,116 @@ clearButton?.addEventListener('click', e => {
 // Validate form on submission
 contactForm?.addEventListener('submit', handleFormSubmit)
 
+// ========== GALLERY EXPANSION ==========
+const galleryGrid = document.querySelector('.gallery-grid')
+const galleryItems = Array.from(document.querySelectorAll('.gallery-item'))
+const originalGalleryOrder = [...galleryItems]
+
+function isDesktopGallery () {
+  return window.innerWidth > 819
+}
+
+function syncGalleryItems () {
+  galleryItems.splice(
+    0,
+    galleryItems.length,
+    ...Array.from(galleryGrid.children)
+  )
+}
+
+function restoreGalleryOrder () {
+  if (!galleryGrid) return
+
+  originalGalleryOrder.forEach(item => {
+    galleryGrid.appendChild(item)
+  })
+  syncGalleryItems()
+}
+
+function closeExpandedGalleryItem () {
+  if (!galleryGrid) return
+
+  galleryItems.forEach(item => {
+    item.classList.remove('is-active', 'is-expanded')
+    item.style.gridColumn = ''
+    item.style.gridRow = ''
+  })
+  restoreGalleryOrder()
+  galleryGrid.classList.remove('is-expanded')
+}
+
+function toggleExpandedGalleryItem (item) {
+  if (!isDesktopGallery()) return
+
+  const isAlreadyExpanded = item.classList.contains('is-expanded')
+
+  if (isAlreadyExpanded) {
+    closeExpandedGalleryItem()
+    return
+  }
+
+  const currentItems = Array.from(galleryGrid.children)
+  const itemIndex = currentItems.indexOf(item)
+  const rowStart = Math.floor(itemIndex / 3) * 3
+  const rowEnd = rowStart + 3
+  const sameRowItems = currentItems.slice(rowStart, rowEnd)
+  const reordered = [
+    ...currentItems.slice(0, rowStart),
+    item,
+    ...sameRowItems.filter(galleryItem => galleryItem !== item),
+    ...currentItems.slice(rowEnd)
+  ]
+
+  reordered.forEach(node => galleryGrid.appendChild(node))
+  syncGalleryItems()
+
+  galleryItems.forEach(galleryItem => {
+    const clicked = galleryItem === item
+    galleryItem.classList.toggle('is-active', clicked)
+    galleryItem.classList.toggle('is-expanded', clicked)
+    galleryItem.style.gridColumn = clicked ? '1 / -1' : ''
+    galleryItem.style.gridRow = ''
+  })
+
+  galleryGrid?.classList.add('is-expanded')
+}
+
+if (galleryItems.length) {
+  galleryItems.forEach(item => {
+    const closeButton = document.createElement('button')
+    closeButton.type = 'button'
+    closeButton.className = 'gallery-close'
+    closeButton.setAttribute('aria-label', 'Stäng bild')
+    closeButton.textContent = '×'
+    closeButton.addEventListener('click', event => {
+      event.stopPropagation()
+      closeExpandedGalleryItem()
+    })
+    item.appendChild(closeButton)
+
+    item.setAttribute('tabindex', '0')
+    item.addEventListener('click', () => toggleExpandedGalleryItem(item))
+    item.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        toggleExpandedGalleryItem(item)
+      }
+    })
+  })
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      closeExpandedGalleryItem()
+    }
+  })
+
+  window.addEventListener('resize', () => {
+    if (!isDesktopGallery()) {
+      closeExpandedGalleryItem()
+    }
+  })
+}
+
 // ========== THEME TOGGLE ==========
 // Initialize theme on page load
 function initializeTheme () {
