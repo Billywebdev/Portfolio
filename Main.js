@@ -377,48 +377,11 @@ function setTheme (theme) {
         : 'images/Hero-title-green-light-reversed.png'
   }
 
-  // Update designmanifest images
-  const designmanifestCover = document.getElementById('designmanifest-cover')
-  if (designmanifestCover) {
-    const baseName = designmanifestCover.src.includes('lightmode')
-      ? designmanifestCover.src.replace('-lightmode', '')
-      : designmanifestCover.src
-    designmanifestCover.src =
-      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
-  }
-
-  const designmanifestUppslag1 = document.getElementById(
-    'designmanifest-uppslag1'
-  )
-  if (designmanifestUppslag1) {
-    const baseName = designmanifestUppslag1.src.includes('lightmode')
-      ? designmanifestUppslag1.src.replace('-lightmode', '')
-      : designmanifestUppslag1.src
-    designmanifestUppslag1.src =
-      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
-  }
-
-  const designmanifestUppslag2 = document.getElementById(
-    'designmanifest-uppslag2'
-  )
-  if (designmanifestUppslag2) {
-    const baseName = designmanifestUppslag2.src.includes('lightmode')
-      ? designmanifestUppslag2.src.replace('-lightmode', '')
-      : designmanifestUppslag2.src
-    designmanifestUppslag2.src =
-      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
-  }
-
-  const designmanifestUppslag3 = document.getElementById(
-    'designmanifest-uppslag3'
-  )
-  if (designmanifestUppslag3) {
-    const baseName = designmanifestUppslag3.src.includes('lightmode')
-      ? designmanifestUppslag3.src.replace('-lightmode', '')
-      : designmanifestUppslag3.src
-    designmanifestUppslag3.src =
-      theme === 'light' ? baseName.replace('.jpg', '-lightmode.jpg') : baseName
-  }
+  document.querySelectorAll('img[data-light-src]').forEach(image => {
+    const darkSrc = image.dataset.darkSrc || image.getAttribute('src')
+    image.dataset.darkSrc = darkSrc
+    image.src = theme === 'light' ? image.dataset.lightSrc : darkSrc
+  })
 }
 
 // Toggle between dark and light modes
