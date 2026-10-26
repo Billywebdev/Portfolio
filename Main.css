@@ -2315,3 +2315,660 @@ footer {
     padding: 10px;
   }
 }
+
+/* ===================================
+   HANDPAINTED DISCS PROJECT PAGE
+   =================================== */
+
+.handpainted-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10%;
+  padding-bottom: 40px;
+}
+
+.handpainted-page>.breadcrumbs {
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 0 24px;
+}
+
+.handpainted-page .Project-Title h1 {
+  font-size: var(--font-size-9xl);
+  margin: 0 0 40px;
+  padding: 20px;
+}
+
+.handpainted-content-frame {
+  width: 1200px;
+  max-width: 100%;
+  border: solid 1px var(--border);
+  border-top: solid 1px var(--highlight);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.handpainted-slide {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.handpainted-posters {
+  display: grid;
+  place-items: center;
+  padding: 5% 6%;
+  background: #e6d4a8;
+}
+
+.handpainted-posters-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  justify-items: center;
+  gap: clamp(24px, 6%, 72px);
+}
+
+.handpainted-posters-grid img {
+  display: block;
+  width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  box-shadow: 5px 7px 8px rgb(0 0 0 / 25%);
+}
+
+.handpainted-brief {
+  display: flex;
+  align-items: center;
+  background: #303b2b;
+  color: #f7f7f4;
+  padding: 5%;
+}
+
+.handpainted-brief-content {
+  width: 100%;
+  align-self: flex-start;
+}
+
+.handpainted-brief h2,
+.handpainted-process>h2 {
+  position: relative;
+  width: fit-content;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.2;
+}
+
+.handpainted-brief h2 {
+  margin-bottom: 34px;
+}
+
+.handpainted-brief h2::after,
+.handpainted-process>h2::after {
+  content: "";
+  position: absolute;
+  width: 165px;
+  height: 4px;
+  bottom: -16px;
+  left: 0;
+  background: #e6d4a8;
+}
+
+.handpainted-brief-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 8%;
+}
+
+.handpainted-brief-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(22px, 3vw, 44px);
+}
+
+.handpainted-brief article h3 {
+  margin-bottom: 8px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  line-height: 1.3;
+  color: inherit;
+}
+
+.handpainted-brief article p {
+  font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+  line-height: 1.5;
+  color: inherit;
+}
+
+.handpainted-process {
+  background: #e6d4a8;
+  color: #303b2b;
+  padding: 5% 8% 4%;
+}
+
+.handpainted-process>h2 {
+  margin: 0 auto 28px;
+  text-align: center;
+  color: #303b2b;
+}
+
+.handpainted-process>h2::after {
+  left: 50%;
+  transform: translateX(-50%);
+  background: #303b2b;
+}
+
+.handpainted-process-groups {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 10%;
+}
+
+.handpainted-sketch-group h3 {
+  margin-bottom: 18px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  color: inherit;
+}
+
+.handpainted-rough-sketches,
+.handpainted-detailed-sketches {
+  display: grid;
+  align-items: start;
+  justify-items: center;
+  gap: 18px;
+}
+
+.handpainted-rough-sketches {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.handpainted-detailed-sketches {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.handpainted-rough-sketches img,
+.handpainted-detailed-sketches img {
+  display: block;
+  width: 100%;
+  height: min(24vh, 190px);
+  object-fit: contain;
+  filter: drop-shadow(2px 3px 2px rgb(0 0 0 / 25%));
+}
+
+@media (max-width: 1100px) {
+
+  .handpainted-brief,
+  .handpainted-process {
+    aspect-ratio: auto;
+  }
+
+  .handpainted-brief {
+    padding: 4%;
+  }
+
+  .handpainted-brief h2 {
+    margin-bottom: 28px;
+  }
+
+  .handpainted-brief-grid {
+    column-gap: 5%;
+  }
+
+  .handpainted-brief-column {
+    gap: 20px;
+  }
+
+  .handpainted-process {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .handpainted-process-groups {
+    gap: 5%;
+  }
+
+  .handpainted-detailed-sketches {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 700px) {
+  .handpainted-page {
+    padding: 20px 5%;
+  }
+
+  .handpainted-page .Project-Title h1 {
+    font-size: var(--font-size-7xl);
+    margin-bottom: 24px;
+    padding: 10px;
+  }
+
+  .handpainted-page>.breadcrumbs {
+    margin-bottom: 20px;
+    font-size: var(--font-size-md);
+  }
+
+  .handpainted-slide {
+    aspect-ratio: auto;
+    overflow: visible;
+  }
+
+  .handpainted-posters {
+    padding: 32px 5%;
+  }
+
+  .handpainted-posters-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .handpainted-posters-grid img {
+    width: min(100%, 320px);
+    max-height: none;
+  }
+
+  .handpainted-brief {
+    padding: 36px 7%;
+  }
+
+  .handpainted-brief-grid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 22px;
+  }
+
+  .handpainted-brief h2,
+  .handpainted-process>h2 {
+    font-size: 2rem;
+  }
+
+  .handpainted-brief h2::after,
+  .handpainted-process>h2::after {
+    width: 130px;
+  }
+
+  .handpainted-brief article h3 {
+    font-size: 1.15rem;
+  }
+
+  .handpainted-brief article p {
+    font-size: 1rem;
+  }
+
+  .handpainted-process {
+    padding: 36px 6%;
+  }
+
+  .handpainted-process>h2 {
+    margin-bottom: 32px;
+  }
+
+  .handpainted-process-groups {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .handpainted-sketch-group h3 {
+    margin-bottom: 14px;
+    font-size: 1.15rem;
+  }
+
+  .handpainted-rough-sketches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .handpainted-detailed-sketches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .handpainted-rough-sketches img,
+  .handpainted-detailed-sketches img {
+    height: auto;
+  }
+}
+
+/* ===================================
+   1177 IMPROVEMENT PROJECT PAGE
+   =================================== */
+
+.project-1177-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10%;
+}
+
+.project-1177-page>.breadcrumbs {
+  width: 1200px;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.project-1177-page .Project-Title h1 {
+  font-size: var(--font-size-9xl);
+  margin: 0 0 40px;
+  padding: 20px;
+}
+
+.project-1177-frame {
+  width: 1200px;
+  max-width: 100%;
+  border: solid 1px var(--border);
+  border-top: solid 1px var(--highlight);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.project-1177-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-1177-intro {
+  padding: clamp(28px, 5vw, 64px);
+  background: #fff;
+}
+
+.project-1177-intro>h2 {
+  margin-bottom: clamp(24px, 4vw, 48px);
+  color: #426789;
+  font-size: clamp(1.4rem, 2.4vw, 2.25rem);
+  text-align: center;
+}
+
+.project-1177-intro-content {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: clamp(28px, 7vw, 84px);
+}
+
+.project-1177-poster {
+  display: block;
+  width: min(100%, 360px);
+  max-height: 560px;
+  margin: 0 auto;
+  object-fit: contain;
+  box-shadow: 3px 5px 9px rgb(0 0 0 / 22%);
+}
+
+.project-1177-copy h3,
+.project-1177-solution-copy article h3 {
+  margin-bottom: 8px;
+  color: #bd1e49;
+  font-size: clamp(1.1rem, 1.7vw, 1.5rem);
+}
+
+.project-1177-copy p,
+.project-1177-solution-copy article p {
+  color: #666;
+  font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+  line-height: 1.5;
+}
+
+.project-1177-copy p+p {
+  margin-top: 12px;
+}
+
+.project-1177-problems {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.5fr) minmax(0, 0.75fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 48px);
+  padding: clamp(28px, 5vw, 60px);
+  background: #c51e49;
+  color: #fff;
+}
+
+.project-1177-phone-wrap {
+  position: relative;
+  width: 100%;
+  max-height: 430px;
+  aspect-ratio: 1 / 2;
+  justify-self: center;
+}
+
+.project-1177-phone {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-1177-phone-marker {
+  position: absolute;
+  top: var(--marker-y);
+  left: var(--marker-x);
+  display: grid;
+  width: clamp(14px, 1.5vw, 18px);
+  aspect-ratio: 1;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #426789;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.project-1177-problem-copy h2,
+.project-1177-solution-copy>h2 {
+  margin-bottom: 20px;
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+}
+
+.project-1177-problem-copy {
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+  text-align: center;
+}
+
+.project-1177-problem-copy h2 {
+  text-align: center;
+}
+
+.project-1177-problem-copy ol {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 100%;
+  align-self: center;
+  margin: 0 auto;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+  counter-reset: project-1177-problems;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+  line-height: 1.45;
+}
+
+.project-1177-problem-copy li {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  gap: 8px;
+  counter-increment: project-1177-problems;
+}
+
+.project-1177-problem-copy li::before {
+  content: counter(project-1177-problems);
+  display: grid;
+  flex: 0 0 1.35em;
+  width: 1.35em;
+  height: 1.35em;
+  place-items: center;
+  border-radius: 50%;
+  background: #426789;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.project-1177-problem-copy>p {
+  margin-top: 22px;
+  color: #fff;
+  font-size: clamp(1rem, 1.4vw, 1.3rem);
+  line-height: 1.45;
+  text-align: center;
+}
+
+.project-1177-solution {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 72px);
+  padding: clamp(28px, 5vw, 60px);
+  background: #fff;
+}
+
+.project-1177-solution-copy>h2 {
+  color: #426789;
+}
+
+.project-1177-solution-copy article+article {
+  margin-top: 18px;
+}
+
+.project-1177-solution-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .project-1177-page {
+    padding: 30px 5%;
+  }
+
+  .project-1177-page .Project-Title h1 {
+    font-size: var(--font-size-8xl);
+    padding: 15px;
+  }
+
+  .project-1177-intro-content {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 28px;
+  }
+
+  .project-1177-problems {
+    grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.5fr) minmax(0, 0.65fr);
+    gap: 18px;
+  }
+
+  .project-1177-phone-wrap {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-1177-page {
+    padding: 20px 5%;
+  }
+
+  .project-1177-page .Project-Title h1 {
+    font-size: var(--font-size-7xl);
+    margin-bottom: 24px;
+    padding: 10px;
+  }
+
+  .project-1177-page>.breadcrumbs {
+    margin-bottom: 20px;
+    font-size: var(--font-size-md);
+  }
+
+  .project-1177-intro-content,
+  .project-1177-solution {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-1177-intro {
+    padding: 28px 22px;
+  }
+
+  .project-1177-intro>h2 {
+    font-size: 1.4rem;
+  }
+
+  .project-1177-poster {
+    width: min(80%, 280px);
+    max-height: none;
+  }
+
+  .project-1177-copy h3,
+  .project-1177-solution-copy article h3 {
+    font-size: 1.1rem;
+  }
+
+  .project-1177-copy p,
+  .project-1177-solution-copy article p {
+    font-size: 1rem;
+  }
+
+  .project-1177-problems {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 20px 14px;
+    padding: 28px 20px;
+  }
+
+  .project-1177-problem-copy {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .project-1177-problem-copy h2 {
+    font-size: 1.7rem;
+    text-align: center;
+  }
+
+  .project-1177-problem-copy ol {
+    gap: 8px;
+    font-size: 0.95rem;
+  }
+
+  .project-1177-problem-copy li {
+    text-align: left;
+  }
+
+  .project-1177-problem-copy>p {
+    font-size: 1rem;
+  }
+
+  .project-1177-phone {
+    width: 100%;
+  }
+
+  .project-1177-phone-wrap {
+    width: min(100%, 190px);
+    max-height: none;
+    justify-self: center;
+  }
+
+  .project-1177-phone-marker {
+    width: 14px;
+    font-size: 0.625rem;
+  }
+
+  .project-1177-solution {
+    gap: 24px;
+    padding: 28px 22px;
+  }
+
+  .project-1177-solution-copy>h2 {
+    font-size: 1.7rem;
+  }
+}
