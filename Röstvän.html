@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Designmanifest</title>
+    <title>Röstvän | Billy Lindström</title>
     <link rel="icon" type="image/png" href="images/Porträtt-svartvit2.png">
     <link rel="stylesheet" href="Main.css">
 </head>
@@ -96,8 +96,8 @@
         </nav>
     </header>
     <main>
-        <div class="designmanifest-page">
-            <nav class="breadcrumbs">
+        <div class="project-rostvan-page">
+            <nav class="breadcrumbs" aria-label="Brödsmulor">
                 <a href="index.html">Hem</a>
                 <span>/</span>
                 <a href="Projects.html">Projekt</a>
@@ -107,8 +107,93 @@
             <section class="Project-Title">
                 <h1>Röstvän</h1>
             </section>
-            <div class="designmanifest-container">
-                <img id="designmanifest-uppslag1" src="images/Röstvän_läs-mer.jpg" alt="Röstvän uppslag">
+            <div class="project-rostvan-frame">
+                <section class="rostvan-hero" aria-labelledby="rostvan-title">
+                    <p class="rostvan-brand">RÖSTVÄN</p>
+                    <div class="rostvan-hero-content">
+                        <div class="rostvan-hero-copy">
+                            <h1 id="rostvan-title">En app för äldreomsorgen.</h1>
+                            <a class="rostvan-scroll-link" href="#rostvan-intro" aria-label="Läs mer om Röstvän">
+                                <span aria-hidden="true">↓</span>
+                            </a>
+                        </div>
+                        <img src="images/Röstvän_startsida.jpg"
+                            alt="Röstväns startsida visas på en mobiltelefon mot en blå bakgrund">
+                    </div>
+                </section>
+
+                <section class="rostvan-intro" id="rostvan-intro" aria-labelledby="rostvan-intro-title">
+                    <div class="rostvan-intro-copy">
+                        <h2 id="rostvan-intro-title">Vad gör Röstvän?</h2>
+                        <p>Appen analyserar röstbeteenden för att upptäcka tecken på stress, ångest och nedstämdhet,
+                            men också energi och glädje. Detta kan möjliggöra tidiga insatser, förbättra välmående
+                            och skapa trygg och individanpassad omsorg.</p>
+                        <p class="rostvan-keywords">Röst · Analys · Insikt · Åtgärd</p>
+                    </div>
+                    <img src="images/Röstvän_huvudmeny.jpg"
+                        alt="Röstväns huvudmeny med knappar för patientläge, statistik, boende och profil">
+                </section>
+
+                <section class="rostvan-steps" aria-labelledby="rostvan-steps-title">
+                    <h2 id="rostvan-steps-title">Så här används appen</h2>
+                    <div class="rostvan-step-list">
+                        <article class="rostvan-step">
+                            <img src="images/Boende-symbol.png" alt="" aria-hidden="true">
+                            <h3>Lägg till boende</h3>
+                            <p>Skapa en personlig profil för alla inom äldreboendet.</p>
+                        </article>
+                        <span class="rostvan-step-arrow" aria-hidden="true">→</span>
+                        <article class="rostvan-step">
+                            <img src="images/Patientläge-symbol.png" alt="" aria-hidden="true">
+                            <h3>Patientläge</h3>
+                            <p>Sätt på patientläge och låt den vara på i bakgrunden.</p>
+                        </article>
+                        <span class="rostvan-step-arrow" aria-hidden="true">→</span>
+                        <article class="rostvan-step">
+                            <img src="images/Statistik-symbol.png" alt="" aria-hidden="true">
+                            <h3>Statistik</h3>
+                            <p>Se statistik för boendets välmående utifrån röstanalyser.</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="rostvan-feature rostvan-feature-boende" aria-labelledby="rostvan-boende-title">
+                    <div class="rostvan-feature-copy">
+                        <h2 id="rostvan-boende-title">Lägg till boende</h2>
+                        <p>Lägg till en ny boende från boende-sidan och fyll i nödvändig information. Därefter kan du
+                            granska den boendes profil och se den i listan av alla boende på äldreboendet.</p>
+                    </div>
+                    <img src="images/Röstvän_inneboende.jpg"
+                        alt="Formulär för att lägga till en boende i Röstvän-appen">
+                </section>
+
+                <section class="rostvan-feature rostvan-feature-patient" aria-labelledby="rostvan-patient-title">
+                    <img src="images/Röstvän_Patient-läge.jpg"
+                        alt="Röstväns patientläge med mikrofonen aktiverad på en mobiltelefon">
+                    <div class="rostvan-feature-copy">
+                        <h2 id="rostvan-patient-title">Sätt på patientläge</h2>
+                        <p>Patientläge analyserar röstbeteenden i rummet där personen befinner sig för att upptäcka
+                            tecken på stress, ångest och nedstämdhet men också energi och glädje. Funktionen kan bara
+                            sättas på och stängas av från inloggad personal.</p>
+                    </div>
+                </section>
+
+                <section class="rostvan-feature rostvan-feature-statistik" aria-labelledby="rostvan-statistik-title">
+                    <div class="rostvan-feature-copy">
+                        <h2 id="rostvan-statistik-title">Se statistik</h2>
+                        <p>Se statistik för välmående av hela äldreboendet senaste veckorna, månaderna eller året.
+                            Jämför vad som har ökat eller minskat angående ledsenhet, stress, ångest, energi och
+                            glädje. Varje individ har även sin personliga statistik för sitt eget välmående.</p>
+                    </div>
+                    <img src="images/Röstvän_statistik.jpg"
+                        alt="Statistikskärm med stapeldiagram över äldreboendets välmående">
+                </section>
+
+                <section class="rostvan-process" aria-labelledby="rostvan-process-title">
+                    <h2 id="rostvan-process-title">Designprocessen</h2>
+                    <img src="images/Röstvän_designprocess.png"
+                        alt="Designprocessen från idégenerering och omvärldsbevakning till prototyp och usability testing">
+                </section>
             </div>
         </div>
     </main>
